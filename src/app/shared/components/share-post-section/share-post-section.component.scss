@@ -1,0 +1,14 @@
+@import '../../../../scss/helpers/variables.scss';
+@import '../../../../scss/helpers/mixins.scss';
+
+.share-post {
+    a {
+      padding: 1rem;
+      @include easeOut;
+
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+    margin-bottom: 3rem;
+}

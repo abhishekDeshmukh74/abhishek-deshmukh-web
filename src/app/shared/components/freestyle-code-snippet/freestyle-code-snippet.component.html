@@ -1,0 +1,11 @@
+<mat-tab-group animationDuration="300ms">
+    <mat-tab *ngIf="code">
+        <ng-template mat-tab-label *ngIf="code">
+            <app-image *ngIf="fileIcon" class="file-icon" src="assets/icons/{{fileIcon}}.png" alt="{{fileIcon}} icon">
+            </app-image>
+            {{ filePath }}
+        </ng-template>
+        <pre><code [highlight]="code"></code></pre>
+        <app-copy-code [code]="code"></app-copy-code>
+    </mat-tab>
+</mat-tab-group>

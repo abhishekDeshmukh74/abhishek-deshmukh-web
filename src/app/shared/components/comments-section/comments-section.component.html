@@ -1,0 +1,40 @@
+<div class="comments-section">
+    <h2>Comments ({{comments?.length | shortNumber}})</h2>
+    <mat-card>
+        <mat-form-field appearance="outline">
+            <mat-label>Post Comment</mat-label>
+            <textarea matInput placeholder="Say something nice..." [formControl]="commentForm"
+                [mentionConfig]="mentionConfig"></textarea>
+            <button *ngIf="commentForm.value" mat-button matSuffix mat-icon-button aria-label="Clear"
+                (click)="onClear()">
+                <mat-icon>close</mat-icon>
+            </button>
+            <mat-error *ngFor="let validation of commentValidationsMessages">
+                <mat-error class="error-message" *ngIf="commentForm.hasError(validation.type) &&
+                (commentForm.dirty || commentForm.touched || submitted)">
+                    {{ validation.message }}
+                </mat-error>
+            </mat-error>
+        </mat-form-field>
+        <button *ngIf="!isLoggedIn" [disabled]="showBtnSpinner" mat-raised-button color="primary" (click)="onLogIn()">
+            Login with Google and Comment
+        </button>
+        <button *ngIf="isLoggedIn" [disabled]="showBtnSpinner" mat-raised-button color="primary"
+            (click)="onComment()">Comment
+        </button>
+        <mat-card-content>
+            <app-loading-spinner *ngIf="showSpinner"></app-loading-spinner>
+            <div *ngFor="let comment of comments | slice: 0: maxSize">
+                <mat-divider></mat-divider>
+                <app-comment-card [comment]="comment" [userId]="user?.id" [isLoggedIn]="isLoggedIn">
+                </app-comment-card>
+                <mat-divider></mat-divider>
+            </div>
+            <div *ngIf="comments.length > maxSize" class="load-comments" (click)="onNext()">
+                Load {{comments.length - maxSize}} Comments
+            </div>
+            <p *ngIf="!showSpinner && !comments?.length">No comments yet. Be the first one :D</p>
+        </mat-card-content>
+    </mat-card>
+</div>
+<mat-divider></mat-divider>

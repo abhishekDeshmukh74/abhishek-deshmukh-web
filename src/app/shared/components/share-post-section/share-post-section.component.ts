@@ -1,0 +1,29 @@
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-share-post-section',
+  templateUrl: './share-post-section.component.html',
+  styleUrls: ['./share-post-section.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+
+export class SharePostSectionComponent implements OnInit {
+
+  @Input() text: string;
+  @Input() hashtags: string;
+  @Input() image: string;
+
+  url: string;
+  pinImage: string;
+
+  constructor(
+    private router: Router,
+  ) { }
+
+  ngOnInit() {
+    this.url = `https://www.abhishekdeshmukh.com${this.router.url}`;
+    this.pinImage = `https://www.abhishekdeshmukh.com/${this.image}`;
+  }
+
+}

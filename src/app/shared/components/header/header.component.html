@@ -1,0 +1,54 @@
+<header>
+  <div id="left-menu" *ngIf="user">
+    <img id="avatar" src={{user.avatarUrl}} alt="avatar">
+    <button mat-button [matMenuTriggerFor]="beforeMenu">
+      <i class="fa fa-angle-down" aria-hidden="true"></i>
+    </button>
+    <mat-menu #beforeMenu="matMenu">
+      <button mat-menu-item (click)="onLogoff()">
+        <mat-icon>follow_the_signs</mat-icon>
+        <span>Log off</span>
+      </button>
+      <button mat-menu-item matTooltip="Receive a push notification when a new blog post is out"
+        matTooltipPosition="right" aria-label="Button that displays Subscribe to Blog" (click)="onSubscribe()">
+        <mat-icon>notifications_active</mat-icon>
+        <span>Subscribe to Blog</span>
+      </button>
+      <button *ngIf="user.email === 'abhishekdeshmukh74@gmail.com'" mat-menu-item (click)="onAdmin()">
+        <mat-icon>admin_panel_settings</mat-icon>
+        <span>Admin</span>
+      </button>
+      <button *ngIf="user.email === 'abhishekdeshmukh74@gmail.com' || user.email === 'rushikesh378@gmail.com'"
+        mat-menu-item (click)="onNotification()">
+        <mat-icon [matBadge]="unreadNotifications">announcement</mat-icon>
+        <span>Notifications</span>
+      </button>
+    </mat-menu>
+  </div>
+
+  <div id="left-menu" *ngIf="!user">
+    <img (click)="onLogIn()" id="login" src="assets/icons/login.png" alt="login" title="Login">
+  </div>
+
+  <div [ngClass]="showMenu ? 'menu-btn close': 'menu-btn'" (click)="toggleMenu()">
+    <div class="btn-line"></div>
+    <div class="btn-line"></div>
+    <div class="btn-line"></div>
+  </div>
+
+  <nav [ngClass]="showMenu ? 'menu show': 'menu'">
+
+    <div [ngClass]="showMenu ? 'menu-branding show': 'menu-branding'">
+      <div class="portrait"></div>
+    </div>
+
+    <ul [ngClass]="showMenu ? 'menu-nav show': 'menu-nav'">
+      <li *ngFor="let menuItem of menuItems" [ngClass]="showMenu ? 'nav-item show': 'nav-item'" (click)="hideMenu()">
+        <a [routerLink]="[menuItem.path]" class="nav-link">
+          {{menuItem.title}}
+        </a>
+      </li>
+    </ul>
+
+  </nav>
+</header>

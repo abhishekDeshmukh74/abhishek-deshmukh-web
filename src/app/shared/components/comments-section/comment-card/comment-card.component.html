@@ -1,0 +1,18 @@
+<div class="comment">
+
+    <img [src]="comment.user.avatarUrl" alt="{{comment.user.firstName}} {{comment.user.lastName}} avatar"
+        class="comment-by-avatar">
+    <p class="comment-by-text"> {{comment.user.firstName}} {{comment.user.lastName}} - {{ comment.created_at | dateAgo}}
+    </p>
+    <p class="comment-text">{{comment.commentText}}</p>
+
+    <div class="actions">
+        <i [ngClass]="commentLiked ? 'fas fa-thumbs-up fa-lg like' : 'far fa-thumbs-up fa-lg like'" title="Like"
+            (click)="onThumbsUp()"> {{comment.likes}}
+        </i>
+        <i [ngClass]="commentDisliked ? 'fas fa-thumbs-down fa-lg dislike' : 'far fa-thumbs-down fa-lg dislike'"
+            title="Dislike" (click)="onThumbsDown()"> {{comment.disLikes}}
+        </i>
+    </div>
+
+</div>

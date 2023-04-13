@@ -1,0 +1,14 @@
+<div *ngIf="showSpinner">
+    <app-loading-spinner></app-loading-spinner>
+</div>
+
+<div class="related-blog-card-item" routerLink="../{{blogCard.url}}">
+    <app-image src="{{blogCard.imageSmall}}" alt="{{blogCard.imageAlt}}" (loaded)="hideSpinner()">
+    </app-image>
+    <p class="title">
+        {{blogCard.title}}
+    </p>
+    <p class="blog-date">
+        {{blogCard.date}}
+    </p>
+</div>

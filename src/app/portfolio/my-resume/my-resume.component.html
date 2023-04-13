@@ -1,0 +1,21 @@
+<main id="resume">
+    <h1 class="lg-heading">
+        My
+        <span class="text-secondary">Resume</span>
+    </h1>
+
+    <h2 class="sm-heading">
+        <a download="Abhishek Deshmukh Resume" href="assets/pdf/abhishek deshmukh resume.pdf"
+            attr.aria-label="Abhishek Deshmukh Resume" target="_blank" rel="noreferrer" rel="noopener noreferrer">
+            <i class="fa fa-download fa-2x" aria-hidden="true" title="Download Resume">
+            </i>
+        </a>
+    </h2>
+
+    <app-loading-spinner *ngIf="loading"></app-loading-spinner>
+
+    <pdf-viewer src="assets/pdf/abhishek deshmukh resume.pdf" [render-text]="true" style="display: block;"
+        (on-progress)="onProgress($event)">
+    </pdf-viewer>
+
+</main>

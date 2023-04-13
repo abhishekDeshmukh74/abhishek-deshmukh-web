@@ -1,0 +1,9 @@
+@import '../../../../scss/helpers/variables.scss';
+
+.load-comments {
+    text-align: center;
+    color: $secondary-color;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 1rem;
+}

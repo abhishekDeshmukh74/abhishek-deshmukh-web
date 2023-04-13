@@ -1,0 +1,13 @@
+<div *ngIf="showSpinner">
+  <!-- <app-loading-spinner></app-loading-spinner> -->
+</div>
+
+<div class="item">
+  <a [routerLink]="[project.url]">
+    <img src="{{project.image}}" alt="{{project.imageAlt}}" (load)="hideSpinner()">
+  </a>
+
+  <a [routerLink]="[project.url]" class="btn-light">
+    <i class="fas fa-eye"></i> {{project.name}}
+  </a>
+</div>

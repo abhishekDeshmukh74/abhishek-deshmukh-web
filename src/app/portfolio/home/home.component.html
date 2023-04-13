@@ -1,0 +1,21 @@
+<main id="home">
+  <h1 class="lg-heading">
+    {{ firstName }}
+    <span class="text-secondary">{{ lastName }}</span>
+  </h1>
+  <h2 class="sm-heading">
+    {{ description }}
+  </h2>
+
+  <h2 class="sm-heading">
+    {{ description2 }}
+  </h2>
+
+  <div class="icons">
+    <ng-container *ngFor="let socialMediaConfig of socialMediaConfigs">
+      <a href="{{socialMediaConfig.url}}" attr.aria-label="{{socialMediaConfig.ariaLabel}}" target=”_blank”>
+        <i class="fab {{socialMediaConfig.icon}} fa-2x" title="{{socialMediaConfig.tooltipTitle}}"></i>
+      </a>
+    </ng-container>
+  </div>
+</main>

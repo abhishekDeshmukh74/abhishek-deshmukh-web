@@ -1,0 +1,27 @@
+<div *ngIf="showSpinner">
+  <app-loading-spinner></app-loading-spinner>
+</div>
+
+<div>
+  <a [routerLink]="[blogCard.url]">
+    <app-image src="{{blogCard.image}}" alt="{{blogCard.imageAlt}}" (loaded)="hideSpinner()">
+    </app-image>
+    <h2>
+      {{blogCard.title}}
+    </h2>
+  </a>
+  <p class="blog-date">
+    {{blogCard.date}}
+  </p>
+
+  <!-- <a href="#" class="btn-light">
+    {{blogCard.title}}
+  </a>
+
+  <a href="#" class="btn-light">
+    <i class="fas fa-eye"></i> Project
+  </a>
+  <a href="#" class="btn-dark">
+    <i class="fab fa-github"></i> Github
+  </a> -->
+</div>

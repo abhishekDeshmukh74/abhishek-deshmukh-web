@@ -1,0 +1,48 @@
+<main id="about">
+  <h1 class="lg-heading">
+    About
+    <span class="text-secondary">Me</span>
+  </h1>
+  <h2 class="sm-heading">
+    Let me tell you a few things...
+  </h2>
+  <div class="about-info">
+    <img class="bio-image" src="/assets/img/portrait_250.png" alt="Abhishek Deshmukh portrait">
+    <a download="Abhishek Deshmukh Resume" href="assets/pdf/abhishek deshmukh resume.pdf"
+      attr.aria-label="Abhishek Deshmukh Resume" target="_blank" rel="noreferrer" rel="noopener noreferrer"
+      class="download-resume">
+      <i class="fa fa-download fa-2x" aria-hidden="true" title="Download Resume">
+      </i>
+    </a>
+    <div class="bio">
+      <h3 class="text-secondary">BIO & Work Experience</h3>
+      <p>{{ bio }}</p>
+    </div>
+    <ng-container id="example" *ngFor="let job of jobs">
+      <app-job-card [job]="job"></app-job-card>
+    </ng-container>
+  </div>
+</main>
+
+<main id="contact">
+  <h2 class="sm-heading">
+    Personal Details...
+  </h2>
+  <div class="boxes">
+    <div>
+      <span class="text-secondary">Age: </span> {{ age }}
+    </div>
+    <div>
+      <span class="text-secondary">Nationality: </span> {{ nationality }}
+    </div>
+    <div>
+      <span class="text-secondary">Email: </span> {{ email }}
+    </div>
+    <div>
+      <span class="text-secondary">Phone: </span> {{ phone }}
+    </div>
+    <!-- <div>
+      <span class="text-secondary">Address: </span> {{ address }}
+    </div> -->
+  </div>
+</main>

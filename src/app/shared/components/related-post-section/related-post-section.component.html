@@ -1,0 +1,11 @@
+<ng-container *ngIf="relatedBlogList.length">
+    <h2>Related posts</h2>
+    <div class="related-posts">
+        <ng-container *ngFor="let blogCard of relatedBlogList | slice: 0: maxSize">
+            <app-related-blog-card [blogCard]="blogCard"></app-related-blog-card>
+        </ng-container>
+        <div *ngIf="relatedBlogList.length > maxSize" (click)="onNext()">
+            Next
+        </div>
+    </div>
+</ng-container>

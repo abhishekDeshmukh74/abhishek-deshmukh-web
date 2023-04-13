@@ -1,0 +1,5 @@
+<div (deferLoad)="onDefer()">
+    <ng-container *ngIf="show">
+        <img [src]="src" [alt]="alt" (load)="onLoad()">
+    </ng-container>
+</div>
