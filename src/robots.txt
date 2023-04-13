@@ -1,0 +1,9 @@
+Sitemap: https://abhishekdeshmukh.com/sitemap.xml
+
+User-agent: *
+
+Disallow: /admin/
+Disallow: /user/
+Disallow: /blog/google/callback
+
+Crawl-delay: 10
