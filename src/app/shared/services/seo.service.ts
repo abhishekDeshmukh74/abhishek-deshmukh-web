@@ -102,18 +102,18 @@ export class SEOService {
         mergeMap((route) => route.data)
       )
       .subscribe((event) => {
-        this.updateTitle(event.title);
-        this.updateDescription(event.description);
+        this.updateTitle(event['title']);
+        this.updateDescription(event['description']);
         this.updateAuthor();
         this.updateRobots();
         this.updateOgTags(
-          event.title,
-          event.description,
-          event.image,
-          event.publishTime,
-          event.modifiedTime
+          event['title'],
+          event['description'],
+          event['image'],
+          event['publishTime'],
+          event['modifiedTime']
         );
-        this.updateTwitterTags(event.title, event.description, event.image);
+        this.updateTwitterTags(event['title'], event['description'], event['image']);
       });
   }
 

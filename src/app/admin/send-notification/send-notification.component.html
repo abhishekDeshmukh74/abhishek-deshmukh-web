@@ -1,0 +1,18 @@
+<main>
+    <h1 class="lg-heading">
+        Send
+        <span class="text-secondary">notification</span>
+    </h1>
+
+    <mat-select [(ngModel)]="selectedTopic">
+        <mat-option *ngFor="let blogTopic of BLOG_POSTS_DATA" [value]="blogTopic">
+            {{blogTopic.TITLE}}
+        </mat-option>
+    </mat-select>
+
+    <button [disabled]="showSpinner" mat-raised-button color="primary" (click)="onSend()">
+        Send Notification
+    </button>
+
+
+</main>

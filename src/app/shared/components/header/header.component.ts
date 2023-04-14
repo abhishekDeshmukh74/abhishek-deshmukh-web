@@ -21,13 +21,13 @@ import { UserService } from 'src/app/user/user.service';
 
 export class HeaderComponent implements OnInit, OnDestroy {
 
-  isLoggedIn: boolean;
-  user: IUser;
-  unreadNotifications: number;
+  isLoggedIn: boolean | undefined;
+  user: IUser | undefined;
+  unreadNotifications: number | undefined;
   notifications: INotification[] = [];
   showMenu = false;
-  private pushSubscription: PushSubscription;
-  private storageServiceSubscription: Subscription;
+  private pushSubscription: PushSubscription | undefined;
+  private storageServiceSubscription: Subscription | undefined;
 
   menuItems = [
     {
@@ -77,13 +77,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (!this.isLoggedIn) {
       return;
     }
-    this.userService.getNotifications(this.user?._id).subscribe(
+    this.userService.getNotifications(String(this.user?._id)).subscribe(
       (res: INotificationsResponse | any) => {
         this.notifications = res.notifications;
         this.unreadNotifications = res.unreadNotifications;
       },
-      (error: ThrownError) => {
-      }
+      (error: ThrownError) => {}
     );
   }
 

@@ -1,0 +1,13 @@
+<main>
+    <h1 class="lg-heading">
+        My
+        <span class="text-secondary">Tasks</span>
+    </h1>
+
+    <div class="projects">
+        <ng-container *ngFor="let project of projects">
+            <app-project-card [project]="project"></app-project-card>
+        </ng-container>
+    </div>
+
+</main>

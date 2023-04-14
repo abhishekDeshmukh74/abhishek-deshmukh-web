@@ -1,0 +1,27 @@
+<div [ngClass]="notification.read ? 'notification': 'notification unread'" (click)="onClick()">
+
+    <img id="avatar" src={{notification.otherUser.avatarUrl}} alt="avatar">
+
+    <div [ngSwitch]="notification.event" class="content">
+        <ng-container *ngSwitchCase="'LIKED'">
+            <span>{{ otherUserName }}</span> has liked your comment: <b>{{ notification.text }}</b>
+        </ng-container>
+        <ng-container *ngSwitchCase="'DISLIKED'">
+            <b>{{ otherUserName }}</b> has disliked your comment: <b>{{ notification.text }}</b>
+        </ng-container>
+        <ng-container *ngSwitchCase="'COMMENTED'">
+            <b>{{ otherUserName }}</b> has replied to your comment: <b>{{ notification.text }}</b>
+        </ng-container>
+        <ng-container *ngSwitchCase="'NEW_POST_OUT'">
+            New blog post is out: <b>{{ notification.text }}</b>
+        </ng-container>
+        <ng-container *ngSwitchCase="'NEW_FEATURE_OUT'">
+            {{ notification.text }}
+        </ng-container>
+    </div>
+
+    <div class="date">
+        {{ notification.created_at | dateAgo }}
+    </div>
+
+</div>

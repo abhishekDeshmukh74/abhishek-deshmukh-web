@@ -11,7 +11,7 @@ export class InternetConnectionStatusService {
   constructor() { }
 
   getConnectionStatus() {
-    return merge<boolean>(
+    return merge<any>(
       fromEvent(window, 'offline').pipe(map(() => false)),
       fromEvent(window, 'online').pipe(map(() => true)),
       new Observable((sub: Observer<boolean>) => {

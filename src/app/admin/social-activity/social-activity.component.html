@@ -1,0 +1,46 @@
+<main>
+    <h1 class="lg-heading">
+        Social
+        <span class="text-secondary">Activity</span>
+    </h1>
+
+    <mat-form-field class="filter">
+        <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+    </mat-form-field>
+
+    <table mat-table matSort [dataSource]="dataSource" class="table">
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> # </th>
+            <td mat-cell *matCellDef="let rowObj; let i = index">
+                {{this.paginator.pageIndex == 0 ? i + 1 : 1 + i + this.paginator.pageIndex * this.paginator.pageSize}}
+            </td>
+        </ng-container>
+
+        <ng-container matColumnDef="url">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> URL</th>
+            <td mat-cell *matCellDef="let rowObj"> {{rowObj.url | slice: 6}}  </td>
+        </ng-container>
+        <ng-container matColumnDef="totalViews">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Views </th>
+            <td mat-cell *matCellDef="let rowObj"> {{rowObj.totalViews}} </td>
+        </ng-container>
+        <ng-container matColumnDef="facebook">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Facebook </th>
+            <td mat-cell *matCellDef="let rowObj"> {{rowObj.facebook}} </td>
+        </ng-container>
+        <ng-container matColumnDef="pinterest">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Pinterest </th>
+            <td mat-cell *matCellDef="let rowObj"> {{rowObj.pinterest}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <app-loading-spinner *ngIf="showSpinner"></app-loading-spinner>
+
+    <mat-paginator #paginator [pageIndex]="0" [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+    </mat-paginator>
+
+</main>

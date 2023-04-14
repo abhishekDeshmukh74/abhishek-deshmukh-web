@@ -1,0 +1,19 @@
+<main>
+    <div class="notifications">
+        <mat-card>
+            <mat-card-content>
+                <app-loading-spinner *ngIf="showSpinner"></app-loading-spinner>
+                <div *ngFor="let notification of notifications">
+                    <mat-divider></mat-divider>
+                    <app-notification-card [notification]="notification" (readId)="onRead($event)">
+                    </app-notification-card>
+                    <mat-divider></mat-divider>
+                </div>
+                <p *ngIf="!showSpinner && !allNotifications" class="no-notifications">No notifications!</p>
+            </mat-card-content>
+            <mat-paginator [length]="allNotifications" [pageIndex]="0" [pageSize]="10"
+                (page)="getPaginatorData($event)">
+            </mat-paginator>
+        </mat-card>
+    </div>
+</main>
