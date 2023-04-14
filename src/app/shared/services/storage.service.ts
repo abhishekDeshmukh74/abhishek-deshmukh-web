@@ -20,7 +20,7 @@ export class StorageService implements OnDestroy {
     }
 
     private startWatching() {
-        addEventListener('storage', this.storageEventListener.bind(this));
+       addEventListener && addEventListener('storage', this.storageEventListener.bind(this));
     }
 
     private stopWatching() {
