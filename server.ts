@@ -24,7 +24,7 @@ export function app(): express.Express {
   server.set('view engine', 'html');
   server.set('views', distFolder);
 
-  server.use(helmet());
+  // server.use(helmet());
 
   server.use(compression());
 
