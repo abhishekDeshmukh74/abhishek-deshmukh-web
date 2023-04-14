@@ -10,7 +10,8 @@ import { BlogCard } from '../../blog-card/blog-card.interfaces';
 
 export class RelatedBlogCardComponent implements OnInit {
 
-  @Input() blogCard: BlogCard;
+  @Input()
+  blogCard!: BlogCard;
   showSpinner = true;
 
   constructor() { }

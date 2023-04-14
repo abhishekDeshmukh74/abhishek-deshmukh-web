@@ -10,13 +10,11 @@ import { ISocialActivity } from './social-activity.interfaces';
 
 @Component({
   templateUrl: './social-activity.component.html',
-  styleUrls: ['./social-activity.component.scss']
+  styleUrls: ['./social-activity.component.scss'],
 })
-
 export class SocialActivityComponent implements OnInit {
-
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator | any;
+  @ViewChild(MatSort, { static: true }) sort: MatSort | any;
 
   displayedColumns = ['id', 'url', 'totalViews', 'facebook', 'pinterest'];
   dataSource = new MatTableDataSource<ISocialActivity>();
@@ -24,26 +22,25 @@ export class SocialActivityComponent implements OnInit {
 
   constructor(
     private adminService: AdminService,
-    private alertService: AlertService,
-  ) { }
+    private alertService: AlertService
+  ) {}
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
-    this.adminService.getSocialStats()
-      .subscribe(
-        (data: ISocialActivity[]) => {
-          this.dataSource.data = data;
-          this.showSpinner = false;
-        },
-        (error: ThrownError) => {
-          this.showSpinner = false;
-          this.alertService.error(error.message);
-        });
+    this.adminService.getSocialStats().subscribe(
+      (data: ISocialActivity[]) => {
+        this.dataSource.data = data;
+        this.showSpinner = false;
+      },
+      (error: ThrownError) => {
+        this.showSpinner = false;
+        this.alertService.error(error.message);
+      }
+    );
   }
 
   applyFilter(event: any) {
     this.dataSource.filter = event.target.value.trim().toLowerCase();
   }
-
 }

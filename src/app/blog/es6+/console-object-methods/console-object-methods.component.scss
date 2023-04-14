@@ -1,0 +1,14 @@
+.three-images {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    &div {
+        &img {
+            margin: 1rem;
+        }
+    }
+}

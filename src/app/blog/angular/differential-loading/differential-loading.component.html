@@ -1,0 +1,118 @@
+<main class="blog-post">
+
+    <div class="content">
+
+        <app-post-header [title]="title" [date]="date"></app-post-header>
+
+        <p>
+            In this post, you will learn how Angular 8 will help you to reduce your bundle size significantly using
+            Differential loading. It is enabled by default from Angular 8. Differential loading allows you to ship
+            modern JavaScript or ES2015/ES6 or above to newer browsers and ES5 JavaScript to legacy/old browsers.
+        </p>
+
+        <h2>Motivation behind Differential Loading</h2>
+
+        <p>
+            When building web applications, making sure your application is compatible with most browsers is a
+            goal. Even as JavaScript continues to evolve, with new features being added, not all browsers are
+            updated with support for these new features at the same pace.
+        </p>
+
+        <p>
+            The code you write in development using TypeScript is transpiled, compiled and bundled into ES2015, the
+            JavaScript syntax that is compatible with most browsers. When targeting older browsers, polyfills are used
+            to bridge the gap by providing functionality that doesn't exist in the older versions of JavaScript
+            supported by those browsers.
+        </p>
+
+        <h2>How Differential Loading works?</h2>
+
+        <p>To maximize compatibility, you could ship a single bundle that includes all your compiled code, plus any
+            polyfills that may be needed. Users with modern browsers, however, shouldn't have to pay the price of
+            increased bundle size that comes with polyfills they don't need. Differential loading, which is supported by
+            default in Angular CLI version 8 and higher, solves this problem.
+        </p>
+
+        <p>Differential loading is a feature where the CLI builds two separate bundles as part of your deployed
+            application.
+        </p>
+
+        <ul>
+            <li>The first bundle contains modern ES2015/ES6 syntax, takes advantage of built-in support in modern
+                browsers, ships fewer polyfills, and results in a smaller bundle size.
+            </li>
+
+            <li>The second bundle contains code in the old ES5 syntax, along with all necessary polyfills. This results
+                in a larger bundle size because the modern JavaScript features like classes, modules, etc. have to be
+                transpiled into ES5 JavaScript, which is a lot more verbose and longer code thereby supporting older
+                browsers.
+            </li>
+        </ul>
+
+        <app-image src="assets/img/blog/differential-loading/screenshot_of_tsconfig_file_of_angular7_project.png"
+            alt="screenshot of tsconfig file of angular 7 project">
+        </app-image>
+
+        <p>The Above image is from the tsconfig.json file of an Angular 7 web application. You can see that we are
+            targeting the ES5 build.
+        </p>
+
+        <app-image src="assets/img/blog/differential-loading/screenshot_of_tsconfig_file_of_angular8_project.png"
+            alt="screenshot of tsconfig file of angular 8 project">
+        </app-image>
+
+        <p>The Above image is from the tsconfig.json file of an angular 8 web application. You can see that we are
+            targeting the ES2015/ES6 build.
+        </p>
+
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <h2>Comparing Angular 7 vs 8 build sizes</h2>
+
+        <!-- <p>When we do a production build of an Angular 7 application, it's going to render out runtime.js, main.js,
+            polyfills.js and es2015-polyfills.js. What we are going to see is that most of the bundle size is coming
+            from main.js as it is shiping ES5 or older version JavaScript code
+        </p> -->
+
+        <p>Let's see what happens when we shift to Angular 8 and create a production build of the same.
+            You will be getting 2 build bundles - ES6 for modern browsers and ES5 legacy browsers
+        </p>
+
+        <p>For eg. let me show what I see when I do a production build of my Angular 8 web app. Take a look at
+            the difference between file sizes
+        </p>
+
+        <app-image src="assets/img/blog/differential-loading/screenshot_of_angular_8_prod_build_output.png"
+            alt="screenshot of angular 8 prod build index file">
+        </app-image>
+
+        <p>You can see by looking at main.js and polyfills-es2015.js files that they are a lot smaller. We have gone
+            from 515 kb to 454 Kb in main.js and 114 Kb to 36.3 Kb in polyfills.js
+        </p>
+
+
+        <p>To see such a difference in your project, all you have to do is migrate to Angular 8 and Angular will
+            handle the heavy lifting to automatically enable differential loading in your app :)
+        </p>
+
+        <!-- <p>Each script tag has a type="module" or nomodule attribute. Browsers with native support for ES modules only
+            load the scripts with the module type attribute and ignore scripts with the nomodule attribute. Legacy
+            browsers only load the scripts with the nomodule attribute, and ignore the script tags with the module type
+            that load ES modules.
+        </p> -->
+
+        <app-share-post-section [hashtags]="hashtags" [text]="shareText" [image]="image">
+        </app-share-post-section>
+
+        <app-related-post-section [excludeTitle]="title" [blogList]="angularBlogCardList"></app-related-post-section>
+
+
+        <app-comments-section [blogPostTitle]="title"></app-comments-section>
+
+    </div>
+
+    <div class="ad-section">
+        <app-adsense-responsive-ad [className]="'vertical-ad'"></app-adsense-responsive-ad>
+    </div>
+
+</main>

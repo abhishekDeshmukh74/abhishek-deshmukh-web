@@ -11,7 +11,7 @@ import { IProject } from './project-card.interfaces';
 
 export class ProjectCardComponent implements OnInit {
 
-  @Input() project: IProject;
+  @Input() project: IProject | undefined;
   showSpinner = true;
 
   constructor() { }

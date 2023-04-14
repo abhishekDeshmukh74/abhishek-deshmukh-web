@@ -1,0 +1,418 @@
+<main class="blog-post">
+
+    <div class="content">
+
+        <app-post-header [title]="title" [date]="date"></app-post-header>
+
+        <p>
+            In this post, you will learn helpful methods in JavaScript Array. An array is one of the most common data
+            structures that we use a lot. I will be going over array methods that are going to use a lot as a
+            programmer. These array methods will make your life easier in your javascript project.
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href=" https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">
+                Here
+            </a>
+            is the list of all array methods provided by the Array class. Today we are going to discuss the following
+            important 15 array methods
+        </p>
+
+        <ul>
+            <li>map()</li>
+            <li>filter()</li>
+            <li>reduce()</li>
+            <li>reduceRight()</li>
+            <li>every()</li>
+            <li>some()</li>
+            <li>includes()</li>
+            <li>concat()</li>
+            <li>sort()</li>
+            <li>slice()</li>
+            <li>splice()</li>
+            <li>pop()</li>
+            <li>shift()</li>
+            <li>push()</li>
+            <li>unshift()</li>
+        </ul>
+
+        <h2>1: map()</h2>
+
+        <p>
+            The map() method creates a new array containing the results of calling a provided function on every
+            element in the calling array
+        </p>
+        <p>
+            The callback function runs once for each element in an array, in order, and constructs a new
+            array from the results. It is invoked only for indexes of the array which have assigned values
+            (including undefined). Please note that it is not called for missing elements of the array
+        </p>
+        <p>map() is invoked with a callback function with the following three arguments: </p>
+        <ul>
+            <li>currentValue - The current element being processed in the array</li>
+            <li>indexOptional (Optional) - The index of the current element being processed in the array</li>
+            <li>array (Optional) - The array, map method was called upon</li>
+        </ul>
+
+        <app-freestyle-code-snippet [code]="mapExample" filePath="mapExample.js">
+        </app-freestyle-code-snippet>
+
+        <p>When you need to transform input array into a new array use map() method</p>
+
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <h2>2: filter()</h2>
+
+        <p>
+            The filter() method creates a new array with all elements that pass the test implemented by the provided
+            function
+        </p>
+        <p>filter() is invoked with a callback function with the following three arguments: </p>
+        <ul>
+            <li>currentValue - The current element being processed in the array</li>
+            <li>indexOptional (Optional) - The index of the current element being processed in the array</li>
+            <li>array (Optional) - The array, filter method was called upon</li>
+        </ul>
+
+        <app-freestyle-code-snippet [code]="filterExample" filePath="filterExample.js">
+        </app-freestyle-code-snippet>
+
+        <p>When you need to filter input array into a new array use filter() method</p>
+
+        <h2>3: reduce()</h2>
+
+        <p>
+            The reduce() method executes a reducer function on each element of the array (from left to right), resulting
+            in a single output value
+        </p>
+
+        <p>
+            This can be difficult to understand especially with all the vague explanations that can be found on the web
+        </p>
+
+        <p>The reducer function takes four arguments: </p>
+        <ul>
+            <li>
+                accumulator - The accumulator accumulates callback's return values. It is the accumulated value
+                previously returned in the last invocation of the callback
+            </li>
+            <li>currentValue - The current element being processed in the array</li>
+            <li>indexOptional (Optional) - The index of the current element being processed in the array</li>
+            <li>array (Optional) - The array, reduce method was called upon</li>
+        </ul>
+
+        <app-freestyle-code-snippet [code]="reduceExample" filePath="reduceExample.js">
+        </app-freestyle-code-snippet>
+
+        <p>
+            Let's break down what happens in the reduce method using the above example. We have passed the reducer
+            function and initial value of the accumulator as an argument. Let's see what happened when we looped over
+            the numbers array
+        </p>
+
+        <ul>
+            <li>
+                In first iteration, The initial value of accumulator as 0(second argument of reduce method).
+                'accumulator: 0' got logged. In second line of reducer function currentValue(10) got added in
+                accumulator(accumulator = 0 + 10)
+            </li>
+            <li>
+                In second iteration, The accumulator now has value 10 so 'accumulator: 10' got logged. In second line of
+                reducer function currentValue(7) got added in accumulator(accumulator = 10 + 7)
+            </li>
+            <li>
+                In third iteration, The accumulator now has value 17 so 'accumulator: 17' got logged. In second line of
+                reducer function currentValue(5) got added in accumulator(accumulator = 17 + 5)
+            </li>
+            <li>After array iteration is complete, reduce function returned the accumulator(22) and stored in sum
+                variable and 'sum: 22' got logged
+            </li>
+        </ul>
+
+        <p>Please note the following mistakes while using reduce method</p>
+
+        <ul>
+            <li>
+                If you don’t pass in an initial value, reduce will assume the first item in your array is your initial
+                value
+            </li>
+            <li>
+                You must return something for the reduce function to work. Always double-check and make sure that
+                you’re returning the value you want
+            </li>
+        </ul>
+
+        <p>
+            When to use => when you want to map and filter together and you have a lot of data to go over use reduce()
+            method
+        </p>
+
+        <h2>4: reduceRight()</h2>
+
+        <p>
+            The reduceRight() method executes a reducer function on each element of the array (from right to left),
+            resulting in a single output value
+        </p>
+
+        <p>
+            In short, reduceRight() works the same as the reduce(), the only difference is in order of processing array
+            elements
+        </p>
+
+        <p>The reducer function takes four arguments, the same as reduce() method: </p>
+        <ul>
+            <li>
+                accumulator - The accumulator accumulates callback's return values. It is the accumulated value
+                previously returned in the last invocation of the callback
+            </li>
+            <li>currentValue - The current element being processed in the array</li>
+            <li>indexOptional (Optional) - The index of the current element being processed in the array</li>
+            <li>array (Optional) - The array, reduceRight method was called upon</li>
+        </ul>
+
+        <app-freestyle-code-snippet [code]="reduceRightExample" filePath="reduceRightExample.js">
+        </app-freestyle-code-snippet>
+
+        <p>
+            I'm not going over how this code worked as it works the same as reduce() method
+        </p>
+
+        <p>When to use => When you need to reduce an array from Right to left use the reduceRight() method</p>
+
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <h2>5: every()</h2>
+
+        <p>
+            every() method tests whether all elements in the array pass the test implemented by the provided
+            function. It returns a boolean value
+        </p>
+
+        <p>every() is invoked with a callback function with the following three arguments: </p>
+
+        <ul>
+            <li>currentValue - The current element being processed in the array</li>
+            <li>indexOptional (Optional) - The index of the current element being processed in the array</li>
+            <li>array (Optional) - The array, every method was called upon</li>
+        </ul>
+
+        <app-freestyle-code-snippet [code]="everyExample" filePath="everyExample.js">
+        </app-freestyle-code-snippet>
+
+        <p>
+            When to use => When you need to check if every array element/object satisfies a particular condition, use
+            every() method
+        </p>
+
+        <h2>6: some()</h2>
+
+        <p>
+            The some() method tests whether at least one of the elements in the array passes the test implemented by the
+            provided function. It returns a boolean value
+        </p>
+
+        <p>some() is invoked with a callback function with the following three arguments: </p>
+
+        <ul>
+            <li>currentValue - The current element being processed in the array</li>
+            <li>indexOptional (Optional) - The index of the current element being processed in the array</li>
+            <li>array (Optional) - The array, some method was called upon</li>
+        </ul>
+
+        <app-freestyle-code-snippet [code]="someExample" filePath="someExample.js">
+        </app-freestyle-code-snippet>
+
+        <p>
+            When to use => When you need to check if at least one array element/object satisfies a particular condition,
+            use some() method
+        </p>
+
+        <h2>7: includes()</h2>
+
+        <p>
+            The includes() method case-sensitively determines whether an array contains a specified element. It
+            returns true if the array contains the element otherwise false.
+        </p>
+
+        <p>includes() can be invoked with the following two arguments: </p>
+
+        <ul>
+            <li>element - The element to search for</li>
+            <li>startIndex (Optional) - Default 0. At which position in the array to start the search</li>
+        </ul>
+
+        <app-freestyle-code-snippet [code]="includesExample" [filePath]="'includesExample.js'">
+        </app-freestyle-code-snippet>
+
+        <p>
+            When to use => When you need to find if a value exists in an array
+        </p>
+
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <h2>8: concat()</h2>
+
+        <p>
+            The concat() method is used to merge two or more arrays. It returns a new array containing all the elements
+            of calling and called arrays
+        </p>
+
+        <p>concat() can be invoked with the following argument: </p>
+
+        <ul>
+            <li>nArray (Optional) - one or more Arrays and/or values to concatenate</li>
+        </ul>
+
+        <app-freestyle-code-snippet [code]="concatExample" [filePath]="'concatExample.js'">
+        </app-freestyle-code-snippet>
+
+        <p>
+            When to use => When you need to merge two or more arrays without modifying existing arrays
+        </p>
+
+        <h2>9: sort()</h2>
+
+        <p>
+            The sort() method sorts array elements. By default, alphabetically sorts the elements. If you want
+            numerically sort the elements we can do it with the help of the comparator function
+        </p>
+        <app-freestyle-code-snippet [code]="sortExample" [filePath]="'sortExample.js'">
+        </app-freestyle-code-snippet>
+
+        <p>Let's see what happened in above examples</p>
+        <ul>
+            <li>The first example is pretty straightforward. fruits array got sorted alphabetically</li>
+            <li>
+                In the second example, [1, 10, 100, 25, 40, 5] got printed. That's weird. It happened because the array got sorted alphabetically not numerically. eg: "25" is bigger than "100", because "2" is bigger than "1"
+            </li>
+            <li>In the third example, We corrected the above example with the help of the comparator function</li>
+        </ul>
+
+        <p>
+            When to use => When you need to sort elements of an array
+        </p>
+
+        <h2>10: slice()</h2>
+
+        <p>The slice() method returns the selected elements in a new array</p>
+
+        <p>slice() is invoked with the following 2 arguments: </p>
+
+        <ul>
+            <li>
+                startIndex (Optional) - An integer that specifies where to start the selection. You can use negative
+                numbers to select from the end of an array. If ignored, it acts like "0"
+            </li>
+            <li>
+                endIndex (Optional) - An integer that specifies where to end the selection. If ignored, all elements
+                from the start position and to the end of the array will be selected. You can use negative numbers to
+                select from the end of an array
+            </li>
+        </ul>
+
+        <app-freestyle-code-snippet [code]="sliceExample" [filePath]="'sliceExample.js'">
+        </app-freestyle-code-snippet>
+
+        <p>
+            When to use => When you need to return the selected elements into a new array
+        </p>
+
+
+        <h2>11: splice()</h2>
+
+        <p>
+            The splice() method adds/removes elements to/from an array, and returns the removed elements. It is a very
+            handy method for array elements modifications
+        </p>
+
+        <p>splice() is invoked with the following arguments: </p>
+
+        <ul>
+            <li>
+                index - An integer that specifies at what position to add/remove elements, You can use negative values
+                to specify the position from the end of the array
+            </li>
+            <li>howManyToRemove (Optional) - The number of elements to be removed. If set to 0, no elements will be
+                removed
+            </li>
+            <li>
+                item1, ... , itemX (Optional) - The new elements to be added to the array
+            </li>
+        </ul>
+
+        <app-freestyle-code-snippet [code]="spliceExample" [filePath]="'spliceExample.js'">
+        </app-freestyle-code-snippet>
+
+        <p>
+            When to use => When you need to add/remove elements to/from an array
+        </p>
+
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <h2>12: pop()</h2>
+
+        <p>
+            The pop() method removes the last element from an array and returns that element. This method changes
+            the length of the array
+        </p>
+
+        <app-freestyle-code-snippet [code]="popExample" [filePath]="'popExample.js'">
+        </app-freestyle-code-snippet>
+
+        <p>When to use => When you need to remove the last element of an array, use the pop() method</p>
+
+        <h2>13: shift()</h2>
+
+        <p>
+            The shift() method removes the first element from an array and returns that element. This method changes
+            the length of the array
+        </p>
+
+        <app-freestyle-code-snippet [code]="shiftExample" [filePath]="'shiftExample.js'">
+        </app-freestyle-code-snippet>
+
+        <p> When to use => When you need to remove the first element of an array, use the shift() method</p>
+
+        <h2>14: push()</h2>
+
+        <p>
+            The push() method adds a new element to the end of an array and returns the new length
+        </p>
+
+        <app-freestyle-code-snippet [code]="pushExample" [filePath]="'pushExample.js'">
+        </app-freestyle-code-snippet>
+
+        <p>When to use => When you need to add an element at the end of an array use push() method</p>
+
+        <h2>15: unshift()</h2>
+
+        <p>
+            The unshift() method adds a new element to the beginning of an array and returns the new length
+        </p>
+
+        <app-freestyle-code-snippet [code]="unshiftExample" [filePath]="'unshiftExample.js'">
+        </app-freestyle-code-snippet>
+
+        <p>
+            When to use => When you need to add an element at the beginning of an array, use unshift() method
+        </p>
+
+        <app-share-post-section [hashtags]="hashtags" [text]="shareText" [image]="image">
+        </app-share-post-section>
+
+        <app-related-post-section [excludeTitle]="title" [blogList]="es6BlogCardList"></app-related-post-section>
+
+        <app-comments-section [blogPostTitle]="title"></app-comments-section>
+
+    </div>
+
+    <div class="ad-section">
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+    </div>
+
+</main>

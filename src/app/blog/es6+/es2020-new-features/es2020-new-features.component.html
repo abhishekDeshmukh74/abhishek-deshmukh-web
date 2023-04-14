@@ -1,0 +1,272 @@
+<main class="blog-post">
+
+    <div class="content">
+
+        <app-post-header [title]="title" [date]="date"></app-post-header>
+
+        <p>
+            In this post, you will learn the new features in JavaScript ES2020 a.k.a. ES11, the new and improved
+            specification of JavaScript. These features can be helpful in your javascript project and some of them
+            will amaze, confuse your coworkers so go ahead, learn, and show off. I recommend taking a look at
+            <a class="text-secondary" target="_blank" rel="noreferrer" href="https://caniuse.com/">
+                https://caniuse.com
+            </a>
+            to check if the features you want to use are available on your targeted browser. Here is the list of
+            features we are going will discuss
+        </p>
+
+        <ul>
+            <li>Dynamic import</li>
+            <li>Null Coalescing operator(??)</li>
+            <li>Promise.allSettled</li>
+            <li>Optional Chaining operator(?.)</li>
+            <li>BigInt</li>
+            <li>Private Class Variables</li>
+            <li>globalThis</li>
+            <li>String.prototype.matchAll()</li>
+            <li>Defined for-in order</li>
+        </ul>
+
+        <h2>1: Dynamic import</h2>
+
+        <p>
+            The import statements we normally use are for initial dependencies are static imports.
+            The static import syntax can only be used at the top level of the file. Let's say, you have
+            a file full of utility functions, some of them may rarely be used, and importing all of their
+            dependencies could just be a non-efficient use of resources. With the dynamic import feature, we
+            can use async/await to dynamically import our dependencies when we need them
+        </p>
+
+        <p>
+            The Dynamic Import, the import(module) expression loads the module and returns a promise that resolves
+            into a module object that contains all its exports. Also, you can call it in any place in the code.
+            We could use with a dynamic import feature when loading dependencies on-demand and it never
+            pollutes the global namespace
+        </p>
+
+        <app-freestyle-code-snippet [code]="utilities" [filePath]="'utilities.js'">
+        </app-freestyle-code-snippet>
+
+        <app-freestyle-code-snippet [code]="index" [filePath]="'index.js'">
+        </app-freestyle-code-snippet>
+
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <h2>2: Null Coalescing operator(??)</h2>
+
+        <p>
+            A lot of times you might want to check if a variable is null, i.e. if it is either undefined or null, like
+            when it's okay for a variable to have an empty string or even a false value. That's where we can use the
+            null coalescing operator(??)
+        </p>
+
+        <p>
+            Please note that the only difference between the `or` operator(||) and the null coalescing operator is that
+            the `or` will coerce the first operand as a boolean and only use it when evaluating true while the null
+            coalescing operator specifically looks for an undefined or null value in the first operand as the
+            requirement for deferring to the second
+        </p>
+
+        <app-image src="assets/img/blog/ES2020-new-features/screenshot_of_null_coalescing_op_examples.png"
+            alt="screenshot of null coalescing op examples">
+        </app-image>
+
+        <app-image src="assets/img/blog/ES2020-new-features/screenshot_of_or_op_examples.png"
+            alt="screenshot of or op examples">
+        </app-image>
+
+        <h2>3: Promise.allSettled</h2>
+
+        <p>
+            The new Promise.allSettled() method returns a promise that resolves after all of the given promises have
+            either resolved or rejected, with an array of objects that each describing the outcome of each promise
+        </p>
+
+        <p>
+            Unlike Promise.all() or Promise.race() which short-circuits when any of the promises are rejected or settled
+            respectively, Promise.allSettled() runs all promises regardless of rejection of any promises
+        </p>
+
+        <app-freestyle-code-snippet [code]="allSettledExample" [filePath]="'index.js'"> </app-freestyle-code-snippet>
+
+        <h2>4: Optional Chaining operator(?.)</h2>
+
+        <p>
+            I am 100% sure, after learning the optional chaining operator, You are going to use it wherever you can
+            e.g. Consider the following movie object
+        </p>
+
+        <app-image src="assets/img/blog/ES2020-new-features/screenshot_of_deep_object_access.png"
+            alt="screenshot of deep object access">
+        </app-image>
+
+        <p>
+            If we console log movie.rating.imdb it will return 8.8. If we try to console log movie.rating.metacritic
+            it will return undefined as there is no metacritic property. That's fine but Let's what happens if I remove
+            the rating property
+        </p>
+
+        <app-image src="assets/img/blog/ES2020-new-features/screenshot_of_deep_object_access_error.png"
+            alt="screenshot of deep object access error">
+        </app-image>
+
+        <p>
+            You can see from the above screenshot that our code breaks at the console.log. Long chains of property
+            accesses can be error-prone, and checking for property existence on each step turns into a
+            deeply nested structure.
+        </p>
+
+        <p>
+            To handle such an error, we will have to check whether the movie property is available. If it is truthy,
+            then we will check if the rating is available or not. if it is available also we can access it.
+            We have to code like this
+        </p>
+
+        <app-image
+            src="assets/img/blog/ES2020-new-features/screenshot_of_deep_object_access_without_optional_chain_op.png"
+            alt="screenshot of deep object access without optional chain op">
+        </app-image>
+
+        <p>However, now we can do it much cleaner by using the optional chaining operator like below:</p>
+
+        <app-image src="assets/img/blog/ES2020-new-features/screenshot_of_deep_object_access_with_optional_chain_op.png"
+            alt="screenshot of deep object access with optional chain op">
+        </app-image>
+
+        <p>
+            That is how an Optional Chaining Operator is very useful! Because it provides a way to simplify accessing
+            values through connected objects when a reference or function may be undefined or null thereby saving every
+            developer's time and preventing a lot of unnecessary errors
+        </p>
+
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <h2>5: BigInt</h2>
+
+        <p>
+            Number primitive in Javascript is used to store number type values in variables. JavaScript's Number has a
+            strict limitation with fixed range numbers and cannot operate with large integers properly. This will max
+            out at 2^(53) – 1 i.e. 9007199254740991. That's where BigInt comes to solve this problem that arises in
+            different areas dealing with larger values
+        </p>
+
+        <p>Let's look at this problem in the image below</p>
+
+        <app-image src="assets/img/blog/ES2020-new-features/screenshot_of_number_limit_problem.png"
+            alt="screenshot of number limit problem">
+        </app-image>
+
+        <p>Let's see how to solve this problem that is solved new BigInt data type</p>
+        <p>
+            A BigInt is created by appending n to the end of an integer literal — 10n — or by calling the function
+            BigInt()
+        </p>
+
+        <app-image src="assets/img/blog/ES2020-new-features/screenshot_of_bigint_number_definition.png"
+            alt="screenshot of bigint number definition">
+        </app-image>
+
+        <p>
+            Here you can see the use of BigInt to solve the above problem. Please note that you cannot mix BigInt
+            and other types
+        </p>
+
+        <app-image src="assets/img/blog/ES2020-new-features/screenshot_of_bigint_solving_number_limit_problem.png"
+            alt="screenshot of bigint solving number limit problem">
+        </app-image>
+
+
+        <h2>6: Private Class Variables</h2>
+
+        <p>
+            By adding a hash symbol in front of our variable or function, we can reserve them entirely for internal
+            use inside the class
+        </p>
+
+        <app-image src="assets/img/blog/ES2020-new-features/screenshot_of_es10_private_variable.png"
+            alt="screenshot of es10 private variable">
+        </app-image>
+
+        <h2>7: globalThis</h2>
+
+        <p>We already have
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://developer.mozilla.org/en-US/docs/Web/API/Window">
+                window</a>,
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://developer.mozilla.org/en-US/docs/Web/API/Window/self">
+                self</a>,
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://developer.mozilla.org/en-US/docs/Web/API/Window/frames">
+                frames</a>, and
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">
+                this
+            </a>
+            which points to the window object, the document property points to the DOM document loaded in that window
+        </p>
+
+        <p>
+            The globalThis stands for the global value of this. But if you are using a webworker, only self would work,
+            and if you are using NodeJs, they have a separate object called global and you cannot access a window. So to
+            avoid these platform-specific globals, JavaScript has added a globalThis which would work on all platforms
+        </p>
+
+        <h2>8: String.prototype.matchAll()</h2>
+
+        <p>
+            The <span class="text-tertiary">matchAll()</span> method returns an iterator of all results matching a
+            string against a regular expression, including
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions/Groups_and_Ranges">
+                capturing groups
+            </a>
+        </p>
+
+        <p>
+            matchAll() method takes a regular expression object as an argument e.g: (str.matchAll(regexp)) and it will
+            return an iterator which is not a restartable iterable
+        </p>
+
+        <!-- <p>todo: add example</p> -->
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <h2>9: Defined for-in order</h2>
+
+        <p>
+            The ECMA specification had not specified in which order for (x in y) loop should execute. Browsers
+            implemented a consistent order on their own before now, but this has been officially standardized in
+            ES11(ES2020)
+        </p>
+
+        <h2>Conclusion</h2>
+
+        <p>JavaScript is continuously evolving, and that’s something very good for web development. Since the ES6, we’re
+            living a vibrant evolution in the language. These new features are great regarding code optimization and
+            simplicity. If you really want to use one of them, but the browser does not support it yet, you can always
+            use Typescript, Babel, or other JavaScript transpilers. We’ve reviewed the features that arise in ES2020
+            with practical examples
+        </p>
+
+        <p>
+            Please visit <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://github.com/tc39/proposals"> here </a>
+            to check javaScript/ECMAScript feature proposals
+        </p>
+
+        <app-share-post-section [hashtags]="hashtags" [text]="shareText" [image]="image">
+        </app-share-post-section>
+
+        <app-related-post-section [excludeTitle]="title" [blogList]="es6BlogCardList"></app-related-post-section>
+
+        <app-comments-section [blogPostTitle]="title"></app-comments-section>
+
+    </div>
+
+    <div class="ad-section">
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+    </div>
+
+</main>

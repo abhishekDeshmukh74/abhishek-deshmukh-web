@@ -17,7 +17,7 @@ import { NotificationRequest, NotificationTopicMeta } from './send-notification.
 export class SendNotificationComponent implements OnInit {
 
   showSpinner = false;
-  selectedTopic: NotificationTopicMeta;
+  selectedTopic: NotificationTopicMeta | undefined;
   BLOG_POSTS_DATA: NotificationTopicMeta[] = [
     ...Object.values(ANGULAR_DATA),
     ...Object.values(ES6_DATA),
@@ -41,13 +41,13 @@ export class SendNotificationComponent implements OnInit {
 
   onSend() {
 
-    const notificationRequest: NotificationRequest = {
-      title: this.selectedTopic.TITLE,
-      body: this.selectedTopic.DESCRIPTION,
-      image: this.selectedTopic.IMAGE,
+    const notificationRequest: NotificationRequest | any = {
+      title: this.selectedTopic?.TITLE,
+      body: this.selectedTopic?.DESCRIPTION,
+      image: this.selectedTopic?.IMAGE,
       actions: [
         {
-          action: `/blog/${this.selectedTopic.PATH}`,
+          action: `/blog/${this.selectedTopic?.PATH}`,
           title: 'Read post',
         }
       ],

@@ -1,0 +1,17 @@
+@import '../../../../scss/helpers/variables.scss';
+@import '../../../../scss/helpers/mixins.scss';
+
+.load-more {
+    width: 100px;
+    text-align: center;
+    margin: 0 auto 20px auto;
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: rgba(lighten($secondary-color, 2), 0.6);
+}
+
+.load-more:hover {
+    background: rgba(lighten($secondary-color, 2), 0.2);
+    @include easeOut;
+}

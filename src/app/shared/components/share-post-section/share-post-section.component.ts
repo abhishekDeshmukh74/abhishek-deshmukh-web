@@ -10,12 +10,15 @@ import { Router } from '@angular/router';
 
 export class SharePostSectionComponent implements OnInit {
 
-  @Input() text: string;
-  @Input() hashtags: string;
-  @Input() image: string;
+  @Input()
+  text!: string;
+  @Input()
+  hashtags!: string;
+  @Input()
+  image!: string;
 
-  url: string;
-  pinImage: string;
+  url: string | undefined;
+  pinImage: string | undefined;
 
   constructor(
     private router: Router,

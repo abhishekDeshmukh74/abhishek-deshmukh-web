@@ -16,14 +16,14 @@ import { INotificationsResponse } from './notifications.interfaces';
 
 export class NotificationsComponent implements OnInit, OnDestroy {
 
-  user: IUser;
+  user: IUser | undefined;
   notifications: INotification[] = [];
   readIds: string[] = [];
-  pageEvent: PageEvent;
+  pageEvent: PageEvent | undefined;
   allNotifications = 0;
   showSpinner = true;
   pageNumber = 1;
-  private storageServiceSubscription: Subscription;
+  private storageServiceSubscription: Subscription | undefined;
 
   constructor(
     private userService: UserService,
@@ -36,16 +36,18 @@ export class NotificationsComponent implements OnInit, OnDestroy {
   }
 
   getNotifications() {
-    this.userService.getNotifications(this.user._id, this.pageNumber).subscribe(
-      (res: INotificationsResponse | any) => {
-        this.showSpinner = false;
-        this.notifications = res.notifications;
-        this.allNotifications = res.allNotifications;
-      },
-      (error: ThrownError) => {
-        this.showSpinner = false;
-      }
-    );
+    this.userService
+      .getNotifications(String(this.user?._id), this.pageNumber)
+      .subscribe(
+        (res: INotificationsResponse | any) => {
+          this.showSpinner = false;
+          this.notifications = res.notifications;
+          this.allNotifications = res.allNotifications;
+        },
+        (error: ThrownError) => {
+          this.showSpinner = false;
+        }
+      );
   }
 
   public getPaginatorData(event: PageEvent): PageEvent {

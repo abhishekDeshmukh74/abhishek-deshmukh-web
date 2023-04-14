@@ -15,7 +15,7 @@ import { ISubscriber } from './subscribers.interfaces';
 
 export class SubscribersComponent implements OnInit {
 
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatSort, { static: true }) sort: MatSort | any;
 
   displayedColumns = ['id', 'email', 'name', 'avatarUrl'];
   dataSource = new MatTableDataSource<ISubscriber>();

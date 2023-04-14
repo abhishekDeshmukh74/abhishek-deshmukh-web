@@ -10,7 +10,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 
 export class CopyCodeComponent implements OnInit {
 
-  @Input() code: string;
+  @Input()
+  code!: string;
 
   constructor(
     private snackBar: MatSnackBar

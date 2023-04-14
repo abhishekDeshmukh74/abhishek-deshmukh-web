@@ -1,11 +1,11 @@
 <div class="job">
   <div>
-    <h2>{{job.role}} at
-      <a href="{{job.companyUrl}}" attr.aria-label="{{job.companyAriaLabel}}" title="{{job.tooltipTitle}}"
+    <h2>{{job?.role}} at
+      <a href="{{job?.companyUrl}}" attr.aria-label="{{job?.companyAriaLabel}}" title="{{job?.tooltipTitle}}"
         target=”_blank”>
-        {{job.title}}
+        {{job?.title}}
       </a>
     </h2>
   </div>
-  <p>{{job.description}}</p>
+  <p>{{job?.description}}</p>
 </div>

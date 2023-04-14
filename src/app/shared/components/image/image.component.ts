@@ -9,8 +9,8 @@ import { ChangeDetectionStrategy, Component, Input, OnInit, Output, EventEmitter
 
 export class ImageComponent implements OnInit {
 
-  @Input() src: string;
-  @Input() alt: string;
+  @Input() src: string | undefined;
+  @Input() alt: string | undefined;
   @Output() loaded = new EventEmitter<boolean>(false);
   show = false;
 

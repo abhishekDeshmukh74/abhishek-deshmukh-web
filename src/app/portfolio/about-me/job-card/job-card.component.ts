@@ -11,7 +11,7 @@ import { IJob } from './job-card.interfaces';
 
 export class JobCardComponent implements OnInit {
 
-  @Input() job: IJob;
+  @Input() job: IJob | undefined;
 
   constructor() { }
 

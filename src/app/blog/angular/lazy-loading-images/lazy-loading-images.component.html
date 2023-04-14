@@ -1,0 +1,124 @@
+<main class="blog-post">
+
+    <div class="content">
+
+        <app-post-header [title]="title" [date]="date"></app-post-header>
+
+        <p>
+            Lazy load is a technique used to improve the loading speed of a webpage. I am going to use a
+            relatively new DOM API
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API">
+                Intersection Observer
+            </a>
+            which provides a way to detect when an element intersects with the viewport. Intersection Observer is
+            very can be very handy if you want to improve the loading speed of a webpage that has a lot of images
+        </p>
+
+        <h2>Motivation behind Lazy loading images</h2>
+
+        <p>
+            As we use lazy loading modules to improve page speed, we might also want to lazy load the content inside of
+            the lazily loaded modules. A very popular image from Google that shows user behavior to leave the webpage
+            with respect to the loading time of the page
+        </p>
+
+        <app-image src="assets/img/blog/lazy-loading-images/google-page-speed-report.png"
+            alt="Google page speed report">
+        </app-image>
+
+        <p>The picture itself is worth of thousand words. An image has a heavy effect on page speed than text because of
+            its large size. A webpage with multiple images will load a lot slower. In short, the faster a page loads,
+            the better the conversion rate. If you want to know more you may want to read the
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://www.thinkwithgoogle.com/marketing-resources/data-measurement/mobile-page-speed-new-industry-benchmarks/">
+                Mobile page speed benchmarks
+            </a>
+            article, released by Google
+        </p>
+
+        <p>it is best to lazy load the images on a page and only display them when the user gets to them, so it does not
+            increase the page load speed. Side benefits are reducing data usage, especially for mobile, where a lot of
+            users can have poor connectivity and limited data plans
+        </p>
+
+        <h2>Steps to implement lazy loading</h2>
+
+        <ul>
+            <li>Create a new intersection observer</li>
+
+            <li>Watch the image we wish to lazy load for visibility changes</li>
+
+            <li>When the image is in the viewport, load the image</li>
+
+            <li>Once the image is loaded, stop watching it for visibility changes</li>
+
+            <li>If the user scrolls down, and the image residing below comes into the viewport, load it</li>
+
+            <li> creating a custom directive to wrap all the steps mentioned above</li>
+
+        </ul>
+
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <h2>Implementation</h2>
+
+        <p>For this post, I will use the <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://www.npmjs.com/package/@trademe/ng-defer-load">
+                @trademe/ng-defer-load
+            </a>
+            npm module that does all the above steps.
+        </p>
+
+        <p>
+            Let's install
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://www.npmjs.com/package/@trademe/ng-defer-load">
+                @trademe/ng-defer-load
+            </a>
+            package using npm i -S @trademe/ng-defer-load command to add to in your angular project and import
+            <span class="text-tertiary">DeferLoadModule</span>
+            in the imports array of the parent module
+        </p>
+
+        <app-freestyle-code-snippet [code]="importDeferLoadModuleFileSnippet" [filePath]="'*.module.json'">
+        </app-freestyle-code-snippet>
+
+        <p>
+            We will then wrap the image using a container div with (deferLoad) directive attached. The directive
+            will return value when an image is in the viewport. As the image appears in the viewport, we will set it's
+            shown the property to true and It will get loaded
+        </p>
+
+        <p>I have created a sample app that displays the info of characters in a popular TV series -
+            The Big bang theory. There are a total of 6 images in this app, Let's lazy load them
+        </p>
+
+        <app-angular-code-snippet [tsCode]="appWithLazyLoadingImagesSnippet.tsCode"
+            [htmlCode]="appWithLazyLoadingImagesSnippet.htmlCode" [cssCode]="appWithLazyLoadingImagesSnippet.cssCode">
+        </app-angular-code-snippet>
+
+        <p>That's it. These are the simple steps to add lazy loading of images in your Angular project</p>
+
+        <p>
+            All the code in this post is available on
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://github.com/abhishekDeshmukh74/angular-lazy-loading-images">
+                Github
+            </a>
+        </p>
+
+        <app-share-post-section [hashtags]="hashtags" [text]="shareText" [image]="image">
+        </app-share-post-section>
+
+        <app-related-post-section [excludeTitle]="title" [blogList]="angularBlogCardList"></app-related-post-section>
+
+        <app-comments-section [blogPostTitle]="title"></app-comments-section>
+
+    </div>
+
+    <div class="ad-section">
+        <app-adsense-responsive-ad [className]="'vertical-ad'"></app-adsense-responsive-ad>
+    </div>
+
+</main>

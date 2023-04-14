@@ -12,9 +12,11 @@ import { BlogCard } from './../blog-card/blog-card.interfaces';
 
 export class RelatedPostSectionComponent implements OnInit {
 
-  @Input() excludeTitle: string;
-  @Input() blogList: BlogCard[];
-  relatedBlogList: BlogCard[];
+  @Input()
+  excludeTitle!: string;
+  @Input()
+  blogList!: BlogCard[];
+  relatedBlogList!: BlogCard[];
   maxSize = CONSTANTS.BLOG_POST_DISPLAY_SIZE;
 
   constructor() { }

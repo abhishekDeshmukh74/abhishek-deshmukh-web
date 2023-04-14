@@ -9,9 +9,12 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 
 export class AngularCodeSnippetComponent implements OnInit {
 
-  @Input() tsCode: string;
-  @Input() htmlCode: string;
-  @Input() cssCode: string;
+  @Input()
+  tsCode!: string;
+  @Input()
+  htmlCode!: string;
+  @Input()
+  cssCode!: string;
 
   constructor() { }
 

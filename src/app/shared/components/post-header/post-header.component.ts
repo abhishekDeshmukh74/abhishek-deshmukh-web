@@ -9,8 +9,10 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 
 export class PostHeaderComponent implements OnInit {
 
-  @Input() title: string;
-  @Input() date: string;
+  @Input()
+  title!: string;
+  @Input()
+  date!: string;
 
   constructor() { }
 

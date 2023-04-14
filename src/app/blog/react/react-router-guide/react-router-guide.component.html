@@ -1,0 +1,271 @@
+<main class="blog-post">
+
+    <div class="content">
+
+        <app-post-header [title]="title" [date]="date"></app-post-header>
+
+        <p>ReactJs apps are
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://en.wikipedia.org/wiki/Single-page_application">
+                single-page apps(SPAs)</a>. When routing features are added, they look like multiple pages because they
+            contain components that render like separate pages. We do this by importing
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://www.npmjs.com/package/react-router-dom">
+                React Router Dom
+            </a> package. React Router conditionally renders respective
+            components to display depending on the route being used in the URL. That's why when you navigate in
+            single-page apps, even after page change the page does not ever refresh
+        </p>
+
+        <p>In this post, we will be building a single-page application website like below. No fancy styles, just a
+            simple, well-functioning website
+        </p>
+
+        <app-image src="assets/img/blog/react-router/demo.gif" alt="Angular material table demo">
+        </app-image>
+
+        <p>By following along, you will learn how to add routing features in a ReactJs app. You can also explore more by
+            going through the React Router documentation
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://reactrouter.com/web/guides/quick-start">
+                here
+            </a>
+        </p>
+
+
+        <p>So without any further delay, let's get started</p>
+
+
+        <p>
+            Let's create a React web app using <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://github.com/facebook/create-react-app">
+                Create React App
+            </a> with the following command and get started with the boilerplate code
+        </p>
+
+        <app-freestyle-code-snippet [code]="'   npx create-react-app react-router'" [filePath]="'command'">
+        </app-freestyle-code-snippet>
+
+        <p>Let's cd into the react-router folder and run the project using npm start
+        </p>
+
+        <app-freestyle-code-snippet [code]="'   npm start'" [filePath]="'command'">
+        </app-freestyle-code-snippet>
+
+        <p>To add Routing features to our app, we have to install React Router Dom package from the npm registry</p>
+
+        <p>
+            Let's install React Router using the following command
+        </p>
+
+        <app-freestyle-code-snippet [code]="'   npm install react-router-dom'" [filePath]="'command'">
+        </app-freestyle-code-snippet>
+
+        <p>We are now ready!</p>
+
+        <h2>1: Basic Routing</h2>
+
+        <p>To get started, We will create a pretty simple app with 3 pages. 1: home, 2: about me, 3: contact me,
+            and then move on to more complex stuff
+        </p>
+
+        <p>
+            Let's get rid of unnecessary code in the app.js file and just have an h1 tag displaying the home page. After
+            doing this, code in app.js will look like this
+        </p>
+
+        <app-freestyle-code-snippet [code]="appJsStartingCode" filePath="App.js">
+        </app-freestyle-code-snippet>
+
+        <p>Let's create 3 more components for pages in src folder: <span class="text-tertiary">Home.js</span>,
+            <span class="text-tertiary">About.js</span>, and <span class="text-tertiary">Contact.js</span> in src folder
+        </p>
+
+        <app-image src="assets/img/blog/react-router/screenshot_of_added_componennts.png"
+            alt="screenshot of added components">
+        </app-image>
+
+        <app-freestyle-code-snippet [code]="homeJsCode" filePath="Home.js">
+        </app-freestyle-code-snippet>
+
+        <app-freestyle-code-snippet [code]="aboutJsCode" filePath="About.js">
+        </app-freestyle-code-snippet>
+
+        <app-freestyle-code-snippet [code]="contactJsCode" filePath="Contact.js">
+        </app-freestyle-code-snippet>
+
+        <p>Now we want a specific component of the application to render on route change</p>
+
+        <p>For <span class="text-tertiary">/</span> route - <span class="text-tertiary">Home</span> component should
+            render
+        </p>
+        <p>For <span class="text-tertiary">/about</span> route - <span class="text-tertiary">About</span> component
+            should render
+        </p>
+        <p>For <span class="text-tertiary">/contact</span> route - <span class="text-tertiary">Contact</span> component
+            should render
+        </p>
+
+        <p>Let's see how do we do this with the help of React Router</p>
+
+        <p>Let's import About, Contact, Home components in App.js</p>
+
+        <p>Let's import
+            <span class="text-tertiary">BrowserRouter</span>,
+            <span class="text-tertiary">Switch</span>,
+            <span class="text-tertiary">Route</span>,
+            <span class="text-tertiary">Link</span> from the react-router-dom package. I'll explain later what
+            each one is does
+        </p>
+
+        <app-freestyle-code-snippet [code]="importsCode" filePath="App.js">
+        </app-freestyle-code-snippet>
+
+        <p>We need to import BrowserRouter from react-router-dom and wrap our app component in it as everything inside
+            BrowserRouter will have routing ability. basically, everything wrapped inside BrowserRouter will have the
+            ability to use routing
+        </p>
+
+        <app-freestyle-code-snippet [code]="browserRouterUseCode" filePath="App.js">
+        </app-freestyle-code-snippet>
+
+        <p>Let's add a HTML nav for Home, About and Contact routes. We need to import Link from react-router-dom and
+            wrap around each navigation to enable route change</p>
+
+        <app-freestyle-code-snippet [code]="navSampleCode" filePath="App.js">
+        </app-freestyle-code-snippet>
+
+        <p>A Switch looks through its children Routes and renders the first one that matches the current URL.
+        </p>
+
+        <app-freestyle-code-snippet [code]="switchSampleCode" filePath="App.js">
+        </app-freestyle-code-snippet>
+
+        <p>If our app is routed to / route, Home component will be rendered, if routed to /about, About component will
+            be rendered, if routed to /contact, Contact component will be rendered
+        </p>
+
+        <p>Note: You need to use an exact path for / otherwise it will also match /about, /contact route</p>
+
+        <p>Let's see how we can display the 404 page when the user navigates to a URL that doesn't exist in the Route
+            definition
+        </p>
+
+        <h2>2: No page found(404) routing</h2>
+
+        <p>Adding path as * in Route is a wildcard so when a user goes to a URL where a page is not there, we will
+            render the 404 page. Also, this has to be the last in the current hierarchy level to work otherwise it will
+            override all other routes that appear after it in the tree because it's first and matches every path
+        </p>
+
+        <app-freestyle-code-snippet [code]="noMatchRouteCode" filePath="App.js">
+        </app-freestyle-code-snippet>
+
+        <p>Let's add a route, for which we don't have a component, the FourZeroFour component should render </p>
+
+        <app-freestyle-code-snippet [code]="noMatchLinkCode" filePath="App.js">
+        </app-freestyle-code-snippet>
+
+        <p>The whole code will look like following</p>
+
+        <app-freestyle-code-snippet [code]="basicRenderingWholeCode" filePath="App.js">
+        </app-freestyle-code-snippet>
+
+        <app-freestyle-code-snippet [code]="appCssCode" filePath="App.css">
+        </app-freestyle-code-snippet>
+
+        <h2>3: Nested Routing</h2>
+
+        <p>
+            Let's move on to more complicated stuff. What if we have more links on the Contact component? how do we
+            navigate to nested URLs?
+        </p>
+
+        <p>We need to import useRouteMatch from react-router-dom. We can use path and url from the useRouteMatch()
+            method. The `path` lets us build Route paths that are relative to the parent route, while the `url` lets us
+            build relative links
+        </p>
+
+        <p>For the demo, I'll add my 2 nested routes(linkedin and facebook) in Contact component and after clicking on
+            them h3 with the appropriate URL will display
+        </p>
+
+        <p>Let's import path and url from useRouteMatch()</p>
+
+        <app-freestyle-code-snippet [code]="pathAndUrlImportCode" filePath="Contact.js">
+        </app-freestyle-code-snippet>
+
+        <p>Let's add an ul with relative nested routes</p>
+
+        <app-freestyle-code-snippet [code]="nestedRoutesUlCode" filePath="Contact.js">
+        </app-freestyle-code-snippet>
+
+        <p>Let's add a switch below ul</p>
+
+        <app-freestyle-code-snippet [code]="switchCode" filePath="Contact.js">
+        </app-freestyle-code-snippet>
+
+        <p>
+            The Route that rendered this component has a path of `/contact/:socialMediaName`. The`:socialMediaName`
+            portion of the URL indicates a placeholder that we can get from`useParams()`. SocialUrl is a new component
+            that we will create inside Contact.js that will render the respective URL for the respective path
+        </p>
+
+        <p>The whole code for the Contact component will look like following</p>
+
+        <app-freestyle-code-snippet [code]="contactNestedCode" filePath="Contact.js">
+        </app-freestyle-code-snippet>
+
+        <p>Let's create the SocialUrl component now. This component renders my linkedin address for /contact/linkedin
+            and facebook address for /contact/facebook
+        </p>
+
+        <app-freestyle-code-snippet [code]="socialUrlCode" filePath="Contact.js">
+        </app-freestyle-code-snippet>
+
+        <p>Now we visit to contact page, we will have 2 links - Linkedin and Facebook. After clicking on facebook -
+            you'll see my facebook address
+        </p>
+
+        <app-image src="assets/img/blog/react-router/contact_page_facebook_screenshot.png"
+            alt="screenshot of contact page facebook">
+        </app-image>
+
+        <p>After clicking on linkedin - you'll see my linkedin address</p>
+
+        <app-image src="assets/img/blog/react-router/contact_page_linkedin_screenshot.png"
+            alt="screenshot of contact page linkedin">
+        </app-image>
+
+        <!-- <h2>4: Dynamic Routing</h2> -->
+
+        <h2>Conclusion</h2>
+
+        <p>So there we have it. If you want to easily navigate around a React app, forget the anchor tags and add React
+            Router. It's clean, it's organized, and it makes adding and deleting pages a whole lot easier. We covered
+            Basic, 404, and nested routing
+        </p>
+
+        <p>All the code in this post is available on
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://github.com/abhishekDeshmukh74/react-router">
+                Github
+            </a>
+        </p>
+
+        <app-share-post-section [hashtags]="hashtags" [text]="shareText" [image]="image">
+        </app-share-post-section>
+
+        <app-related-post-section [excludeTitle]="title" [blogList]="reactBlogCardList"></app-related-post-section>
+
+        <app-comments-section [blogPostTitle]="title"></app-comments-section>
+
+    </div>
+
+    <div class="ad-section">
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+    </div>
+
+
+</main>

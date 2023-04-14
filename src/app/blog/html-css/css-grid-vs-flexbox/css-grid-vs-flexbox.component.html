@@ -1,0 +1,129 @@
+<main class="blog-post">
+
+    <div class="content">
+
+        <app-post-header [title]="title" [date]="date"></app-post-header>
+
+        <p>
+            CSS Grid and flexbox are vastly used layout models to create any responsive user interface. They can both
+            be used to place, size, scale, and align the website designs. Developers either prefer using the grid or
+            flexbox. It's a common debate between these two developer groups on which is better. If you are confused
+            about which one to go for, this post will give you clarity. So, Let's get started by identifying the key
+            differences between grid and flexbox
+        </p>
+
+        <p>Today, we are going to discuss the following key differences between grid and flexbox</p>
+
+        <ul>
+            <li>Dimensional Layout</li>
+            <li>Browser support</li>
+            <li>Scalability</li>
+            <li>Media query dependency</li>
+        </ul>
+
+        <h2>1: Dimensional Layout</h2>
+
+        <p>
+            Grid is made for two dimensional layouts - with both row and columns. e.g. following 2D layout - Using
+            grid will give you more flexibility, make your markup simpler and the code will be easier to maintain
+        </p>
+
+        <app-image src="assets/img/blog/css-grid-vs-flexbox/grid-2D-layout.png" alt="grid 2d layout">
+        </app-image>
+
+        <app-freestyle-code-snippet [code]="gridHtmlSnippet" [filePath]="'index.html'"></app-freestyle-code-snippet>
+
+        <p>
+            Flexbox is made for one dimensional layouts - either stacked in a row or column. e.g. following 1D layout
+        </p>
+
+        <app-image src="assets/img/blog/css-grid-vs-flexbox/flexbox-1D-layout.png" alt="flexbox 1d layout">
+        </app-image>
+
+        <app-freestyle-code-snippet [code]="flexboxHtmlSnippet" [filePath]="'index.html'"></app-freestyle-code-snippet>
+
+        <p>
+            Flexbox will give you more flexibility than a grid. It’ll also be easier to maintain and require less
+            code. Using a flexbox to build layouts is straightforward if you understand the concept. It just helps you
+            place two items next to each other in a flex container
+        </p>
+
+        <p>
+            You can also use the grid and flexbox together. In the example above, it would be perfect to use a grid for
+            the page layout and then flexbox to align the content inside the header. This will give you the best of both
+            worlds
+        </p>
+
+        <app-image src="assets/img/blog/css-grid-vs-flexbox/grid-flexbox-combined.png" alt="grid flexbox combined">
+        </app-image>
+
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <h2>2: Browser support</h2>
+
+        <p>
+            Both the CSS grid and flexbox are well supported by almost all browsers. You will rarely face any browser
+            issues with either of them. Grid is newer than flexbox so the grid has less browser support than that of
+            flexbox. You can see the individual support in the following hyperlinks
+        </p>
+
+        <p>
+            <a class="text-secondary" target="_blank" rel="noreferrer" href="https://caniuse.com/flexbox">
+                CSS flexbox support
+            </a>
+            and
+            <a class="text-secondary" target="_blank" rel="noreferrer" href="https://caniuse.com/css-grid">
+                CSS grid support
+            </a>
+        </p>
+
+        <h2>3: Scalability</h2>
+
+        <p>
+            CSS grids are great for building the bigger picture. They make it easy to manage the layout of the
+            page, and can even handle more unorthodox and asymmetrical designs. If you have to incorporate any design
+            changes, that too can be easily done. On the other side, flexbox is great at aligning, scaling, arranging
+            the content inside elements
+        </p>
+
+        <h2>4: Media query dependency</h2>
+
+        <p>
+            CSS grid requires comparatively fewer media query interventions with really powerful functionalities like
+            auto-layout, minmax(), repeat(), and auto-fill. You will have to write comparatively more code in media
+            queries for flexbox
+        </p>
+
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <h2>Conclusion</h2>
+
+        <p>
+            Both CSS grid and flexbox have some distinct uses and both are capable in different use cases, so we use
+            both of them together. If just a single one is enough to meet your need then use that particular layout
+            system
+        </p>
+
+        <p>
+            In general, CSS grids are great for building the bigger picture. They make it super easy to manage the
+            layout of the page, and can even handle more unorthodox and asymmetrical designs. On the other side, the
+            flexbox is great at aligning the content inside elements. There is no reason to use only grids or only
+            flexbox. Learn both and use them together
+        </p>
+
+
+        <app-share-post-section [hashtags]="hashtags" [text]="shareText" [image]="image">
+        </app-share-post-section>
+
+        <app-related-post-section [excludeTitle]="title" [blogList]="htmlCssBlogCardList"></app-related-post-section>
+
+        <app-comments-section [blogPostTitle]="title"></app-comments-section>
+
+    </div>
+
+    <div class="ad-section">
+        <app-adsense-responsive-ad [className]="'vertical-ad'"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad [className]="'vertical-ad'"></app-adsense-responsive-ad>
+    </div>
+
+</main>

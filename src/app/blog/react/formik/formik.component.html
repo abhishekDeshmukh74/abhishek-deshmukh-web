@@ -1,0 +1,84 @@
+<main class="blog-post">
+
+    <div class="content">
+
+        <app-post-header [title]="title" [date]="date"></app-post-header>
+
+        <p>
+            Forms are vital part of any application becoming the standard of capturing information from
+            application users.
+        </p>
+
+        <h2>Why Formik?</h2>
+
+
+        <p>Formik is a small library that helps in dealing with forms in React simplifying following parts</p>
+
+        <ul>
+            <li>Storing and Accessing form data</li>
+            <li>Validations</li>
+            <li>Error messages</li>
+            <li>Form submission</li>
+        </ul>
+
+        <p>
+            By giving one stop solution to all of the above in one place, Formik will keep things organized there by
+            making testing, refactoring, and reasoning about your forms a walk in a park. Although you can do all of
+            this with plain React but Formik helps you do these in better performance and scalable and
+            easier way
+        </p>
+
+        <p>If you ask How do we do that? then that is what we will be seeing in this post. code of this post will be on
+            my github page
+        </p>
+
+        <p> For this post, we will build a form that contains text, textarea radio, select inputs. Let's consider a use
+            case - build a form that captures user details like name, email, gender and marital status with validations
+            and add a button after clicking that API call should happen
+        </p>
+
+        <p>Let's start coding!</p>
+
+        <p>
+            Let's create a sample react app using npx. Open up the terminal and run the following command to create
+            react web app with boilerplate code
+        </p>
+
+
+        <app-freestyle-code-snippet [code]="'   create-react-app react-formik'" [filePath]="'command'">
+        </app-freestyle-code-snippet>
+
+        <p>Once the project is ready, start the app with <span class="text-tertiary">npm start</span></p>
+
+        <p>Firstly, we will remove the unnecessary code from app.js. After
+            doing this, code in app.js will look like this
+        </p>
+
+        <app-freestyle-code-snippet [code]="appJsStartingCode" filePath="app.js">
+        </app-freestyle-code-snippet>
+
+        <p>Let's create a component called ProfileForm.js which captures some details from user</p>
+
+        <p>We have created a functional component ar src/components/form.jsx</p>
+
+        <p>To add Formik to our app, we have to install the package from npm registry using the following command</p>
+
+        <app-freestyle-code-snippet [code]="'   npm install formik'" [filePath]="'command'">
+        </app-freestyle-code-snippet>
+
+        <!-- <app-share-post-section [hashtags]="hashtags" [text]="shareText" [image]="image">
+        </app-share-post-section> -->
+
+        <app-related-post-section [excludeTitle]="title" [blogList]="reactBlogCardList"></app-related-post-section>
+
+        <!-- <app-comments-section [blogPostTitle]="title"></app-comments-section> -->
+
+    </div>
+
+    <div class="ad-section">
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+    </div>
+
+
+</main>

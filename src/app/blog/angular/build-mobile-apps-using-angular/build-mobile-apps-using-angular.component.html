@@ -1,0 +1,268 @@
+<main class="blog-post">
+
+    <div class="content">
+
+        <app-post-header [title]="title" [date]="date"></app-post-header>
+
+        <p>
+            There are a few options available for creating mobile apps with Angular. In this post,
+            you will explore various ways you can create mobile applications for
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://en.wikipedia.org/wiki/Android_(operating_system)">
+                Android
+            </a>
+            and
+            <a class="text-secondary" target="_blank" rel="noreferrer" href="https://en.wikipedia.org/wiki/IOS">
+                iOS
+            </a>
+            using Angular including their pros and cons. So without further ado, let's get started
+        </p>
+
+        <h2>Why though?</h2>
+
+        <p>
+            When you need to build both a web and a native mobile app, you have to create, develop, and maintain two
+            separate projects. Although this got the job done it required more time and resources to achieve it.
+            It is quickly becoming apparent that we can do better than that.
+        </p>
+
+        <p>
+            Now in this era where we need to develop something for both a web and a native mobile app with
+            fewer efforts, money, and time, there are a few options available for creating a mobile app with Angular
+        </p>
+
+        <h2>1: Progressive web app (PWA)</h2>
+
+        <p>
+            For those who don't know what a PWA is - A Progressive Web App (PWA) is an app that uses modern Web
+            capabilities to offer users a very similar (if not better) experience to a native app
+        </p>
+
+        <p>I'll create a new Angular app and will follow the following steps to convert your Angular app into a PWA</p>
+
+        <ul>
+            <li>ng new angular-app-pwa</li>
+            <li>cd angular-app-pwa</li>
+            <li>ng add @angular/pwa</li>
+            <li>npm i -g http-server</li>
+            <li>http-server -p 8080 -c-1 dist/angular-app-pwa</li>
+        </ul>
+
+        <p>The above command completes the following actions</p>
+
+        <ul>
+            <li>Adds the
+                <a class="text-secondary" target="_blank" rel="noreferrer" href="https://angular.io/api/service-worker">
+                    @angular/service-worker
+                </a>
+                package to your project
+            </li>
+            <li>Enables service worker build support in the CLI</li>
+            <li>Imports and registers the service worker in the app module</li>
+            <li>Updates the index.html file with a link to add the manifest.json file and adds meta tags for theme-color
+            </li>
+            <li>Installs icon files to support the installed Progressive Web App (PWA)</li>
+            <li>Creates the service worker configuration file called ngsw-config.json, which specifies the caching
+                behaviors and other settings
+            </li>
+        </ul>
+
+        <p>
+            This a repo following the above steps on
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://github.com/abhishekDeshmukh74/angular-app-pwa">
+                Github
+            </a>
+            and you can see a working demo
+            <a class="text-secondary" target="_blank" rel="noreferrer" href="https://angular-app-pwa.herokuapp.com/">
+                here
+            </a>
+        </p>
+
+        <p>
+            If you go there from mobile, a banner popup like this will appear. After clicking it,
+            our app will be installed on your phone
+        </p>
+
+        <h2>Pros and Cons</h2>
+        <ul class="pros-cons">
+            <li>
+                <i class="fa fa-plus-circle"></i>
+                They behave with the user as if they were native apps, in terms of interaction and navigation</li>
+            <li>
+                <i class="fa fa-plus-circle"></i>
+                Information is always up-to-date thanks to the data update process offered by service workers</li>
+            <li>
+                <i class="fa fa-plus-circle"></i>
+                Exposed over HTTPS protocol</li>
+            <li>
+                <i class="fa fa-plus-circle"></i>
+                Works Offline</li>
+            <li>
+                <i class="fa fa-plus-circle"></i>
+                Easily shared via URL without complex installations</li>
+
+            <li>
+                <i class="fa fa-minus-circle"></i>
+                Higher device battery drain</li>
+            <li>
+                <i class="fa fa-minus-circle"></i>
+                PWA support only started since Angular 6</li>
+            <li>
+                <i class="fa fa-minus-circle"></i>
+                not all devices support the full range of PWA features</li>
+            <li>
+                <i class="fa fa-minus-circle"></i>
+                Not a real native app, just a browser view in the app so hardware are not utilized well</li>
+        </ul>
+
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <h2>2: Cordova</h2>
+
+        <p>
+            This is the easiest and least time-consuming way of taking an existing Angular application that you have
+            and ship it as a mobile application on mobile devices using
+            <a class="text-secondary" target="_blank" rel="noreferrer" href="https://cordova.apache.org">
+                Cordova
+            </a>
+        </p>
+
+        <p>
+            To install Cordova run this command -
+            <span class="text-tertiary">npm install -g cordova</span>
+        </p>
+        <p>I have also installed android SDK because I am going to point to an Android app if you want to deploy as an
+            ios application, you need to have
+            <a class="text-secondary" target="_blank" rel="noreferrer" href="https://developer.apple.com/xcode">
+                Xcode
+            </a>
+            and other tools
+        </p>
+
+        <p>I will jump back to the terminal. I already have an Angular project so I am assuming you'll be taking an
+            existing project as well. If not it's still easy to do the same procedure if you're creating a new project
+            as well
+        </p>
+
+        <ul>
+            <li>cordova create angular-cordova-app</li>
+            <li>cd angular-cordova-app</li>
+            <li>cordova platform add android</li>
+            <li>Create a prod build of an Angular app using - ng build --prod</li>
+            <li>Goto dist folder. Open index.html file. Change
+                <app-freestyle-code-snippet [code]="indexHtmlBefore" [filePath]="'index.html'">
+                </app-freestyle-code-snippet>
+                to
+                <app-freestyle-code-snippet [code]="indexHtmlAfter" [filePath]="'index.html'">
+                </app-freestyle-code-snippet>
+                because when I serve the application from the base or root of the domain. We are serving
+                from an existing file system of the operating system, in our case it's Android
+            </li>
+            <li>Paste it in angular-cordova-app/www folder</li>
+            <li>cordova run android</li>
+            <li>Have a cup of coffee till the build process finishes</li>
+        </ul>
+
+        <h2>Pros and Cons</h2>
+
+        <ul class="pros-cons">
+            <li>
+                <i class="fa fa-plus-circle"></i>
+                Very Quickly and effortlessly a mobile app can be created
+            </li>
+
+            <li>
+                <i class="fa fa-minus-circle"></i>
+                Not a real native app, just a browser view in the app so hardware are not utilized well</li>
+            <li>
+                <i class="fa fa-minus-circle"></i>
+                Sometimes, the
+                <a class="text-secondary" target="_blank" rel="noreferrer" href="https://www.apple.com/ios/app-store">
+                    App Store
+                </a>
+                will reject this app as our app is just a browser view running inside an app window
+            </li>
+        </ul>
+
+        <h2>3: NativeScript</h2>
+
+        <p>
+            As mentioned on
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://www.nativescript.org/">NativeScript</a> website
+            If you know Angular, you're already ready to develop amazing native mobile apps with NativeScript. With
+            NativeScript and Angular, a single code base and skillset can be used to create web apps and native mobile
+            apps with 100% native performance and power. Buttery smooth animations, direct access to 100% of the native
+            platform APIs, it’s pretty amazing.
+        </p>
+
+        <h2>Pros and Cons</h2>
+
+        <ul class="pros-cons">
+            <li>
+                <i class="fa fa-plus-circle"></i>
+                Code and Skill Reuse, You can reuse JavaScript npm modules, as well as native iOS CocoaPod and
+                Android Arsenal libraries, directly in NativeScript
+            </li>
+            <li>
+                <i class="fa fa-plus-circle"></i>
+                True Native Mobile app
+            </li>
+            <li>
+                <i class="fa fa-plus-circle"></i>
+                Cross-platform. Builds for Android and iOS. It deals with the platforms differences very well
+            </li>
+            <li>
+                <i class="fa fa-plus-circle"></i>
+                Solved problem when you can't afford separate teams for Android and iOS
+            </li>
+            <!-- <li>
+                <i class="fa fa-plus-circle"></i>
+                NativeScript Playground
+            </li> -->
+            <li>
+                <i class="fa fa-plus-circle"></i>
+                Backed up by Google and Telerik
+            </li>
+            <li>
+                <i class="fa fa-minus-circle"></i>
+                Nativescript runs everything on a single thread. i.e., the UI thread. If you
+                want to offload some processing, you have to use web workers
+            </li>
+            <li>
+                <i class="fa fa-minus-circle"></i>
+                The final size for Android could be huge compared with hybrid tools or the
+                same NativeScript size for iOS
+            </li>
+            <li>
+                <i class="fa fa-minus-circle"></i>
+                The
+                <a class="text-secondary" target="_blank" rel="noreferrer"
+                    href="https://docs.nativescript.org/ui/styling">
+                    Styling and CSS
+                </a> is currently very limited
+            </li>
+        </ul>
+
+        <!-- <h2>4: Ionic</h2> -->
+
+
+        <!-- <h2> Comparison</h2> -->
+
+
+        <app-share-post-section [hashtags]="hashtags" [text]="shareText" [image]="image">
+        </app-share-post-section>
+
+        <app-related-post-section [excludeTitle]="title" [blogList]="angularBlogCardList"></app-related-post-section>
+
+        <app-comments-section [blogPostTitle]="title"></app-comments-section>
+
+    </div>
+
+    <div class="ad-section">
+        <app-adsense-responsive-ad [className]="'vertical-ad'"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad [className]="'vertical-ad'"></app-adsense-responsive-ad>
+    </div>
+
+</main>

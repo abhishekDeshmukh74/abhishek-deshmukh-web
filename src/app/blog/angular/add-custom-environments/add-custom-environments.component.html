@@ -1,0 +1,149 @@
+<main class="blog-post">
+
+    <div class="content">
+
+        <app-post-header [title]="title" [date]="date"></app-post-header>
+
+        <p>In this post, you will learn how you can add custom environments to your Angular project.
+            For this post, I'm going to add
+            <span class="text-tertiary">Staging</span>,
+            <span class="text-tertiary">Release</span>,
+            <span class="text-tertiary">Test</span>
+            environments in an Angular CLI generated project. Let's get started!
+        </p>
+
+        <h2>The need for custom environments</h2>
+
+        <p>
+            By default, an Angular CLI-generated project gives
+            <span class="text-tertiary">Development</span> and
+            <span class="text-tertiary">Production</span> environment.
+            So, You will be familiar with the below image as it would be in your project
+        </p>
+
+        <app-image src="assets/img/blog/add-custom-environments/screenshot_of_env_folder.png"
+            alt="screenshot of env folder">
+        </app-image>
+
+        <p> In Enterprise projects, there is a set process on how your project code/build goes into production. For eg:
+            Firstly code is developed in the Development environment, then from the Development environment it goes to
+            Qa, then from there it goes to Staging, and finally it goes Live/Production. To follow such a procedure we
+            need more than these 2 environments. Every different environment will have its environment-specific
+            configurations that we will be using in our code
+        </p>
+
+        <p>Let's see what happens behind the hood, when you create a build of the
+            <span class="text-tertiary">Production</span> environment
+        </p>
+
+        <h2>Production build analysis</h2>
+
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <p>When you run command
+            <span class="text-tertiary"> ng build --prod</span>
+            to create a production build, It replaces `environment.ts` with
+            `environment.prod.ts`
+        </p>
+
+        <p>How angular does this?</p>
+
+        <p>
+            It refers `angular.json` file which keeps track of all the configurations of an
+            angular project. You can see this by referring to the section under
+            <span class="text-tertiary break-all"> projects/architect/build/configurations/fileReplacements</span>
+            section
+        </p>
+
+        <app-image src="assets/img/blog/add-custom-environments/screenshot_of_angular_json_production_section.png"
+            alt="screenshot of angular.json production section">
+        </app-image>
+
+        <p>Now after this information, Let's start creating a new environment file for each new environment we
+            want to add to our project.
+        </p>
+
+        <h2>Adding more environments</h2>
+
+        <p>I've added the following environment files
+            <span class="text-tertiary">environment.release</span>,
+            <span class="text-tertiary">environment.staging</span> and
+            <span class="text-tertiary">environment.test</span> environments
+            in an angular CLI generated web app
+        </p>
+
+        <app-image
+            src="assets/img/blog/add-custom-environments/screenshot_of_env_folder_after_adding_custom_environments.png"
+            alt="screenshot of env folder after adding custom environments of angular.json">
+        </app-image>
+        <app-freestyle-code-snippet [code]="releaseEnvironmentFileSnippet"
+            [filePath]="'src/environments/environment.release.ts'"></app-freestyle-code-snippet>
+        <app-freestyle-code-snippet [code]="stagingEnvironmentFileSnippet"
+            [filePath]="'src/environments/environment.staging.ts'"></app-freestyle-code-snippet>
+        <app-freestyle-code-snippet [code]="testEnvironmentFileSnippet"
+            [filePath]="'src/environments/environment.test.ts'">
+        </app-freestyle-code-snippet>
+
+        <h2>Updating angular.json</h2>
+
+        <p>
+            Let's update angular.json file at
+            <span class="text-tertiary break-all">projects/architect/build/configurations</span> and
+            <span class="text-tertiary break-all">projects/architect/serve</span> section of angular.json
+        </p>
+
+        <app-freestyle-code-snippet [code]="afterAddingConfigInServeInAngularJsonSnippet" [filePath]="'angular.json'">
+        </app-freestyle-code-snippet>
+
+        <app-image
+            src="assets/img/blog/add-custom-environments/screenshot_of_angular_json_after_adding_custom_environments.png"
+            alt="screenshot of env folder after adding custom environments of angular.json">
+        </app-image>
+
+        <p>
+            That's it! Let's see how to make a build of the respective environment. Let's start by creating a build of
+            `release` environment
+        </p>
+
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <h2>Creating a build of custom environments</h2>
+
+        <p>Now we will run
+            <span class="text-tertiary">ng serve --configuration=staging</span> or
+            <span class="text-tertiary">ng build --configuration=staging</span>
+        </p>
+
+        <app-angular-code-snippet [tsCode]="appWithEnvironmentAccessSnippet.tsCode"
+            [htmlCode]="appWithEnvironmentAccessSnippet.htmlCode" [cssCode]="appWithEnvironmentAccessSnippet.cssCode">
+        </app-angular-code-snippet>
+
+        <p>Now visit http://localhost:4200. You'll see the following output on the screen</p>
+
+        <app-image src="assets/img/blog/add-custom-environments/screenshot_of_output.png" alt="screenshot of output">
+        </app-image>
+
+        <p>These are the simple steps to add custom environments to your project</p>
+
+        <p>All the code in this post is available on
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://github.com/abhishekDeshmukh74/angular-add-custom-environments">
+                Github
+            </a>
+        </p>
+
+        <app-share-post-section [hashtags]="hashtags" [text]="shareText" [image]="image">
+        </app-share-post-section>
+
+        <app-related-post-section [excludeTitle]="title" [blogList]="angularBlogCardList"></app-related-post-section>
+
+        <app-comments-section [blogPostTitle]="title"></app-comments-section>
+
+    </div>
+
+    <div class="ad-section">
+        <app-adsense-responsive-ad [className]="'vertical-ad'"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad [className]="'vertical-ad'"></app-adsense-responsive-ad>
+    </div>
+
+</main>

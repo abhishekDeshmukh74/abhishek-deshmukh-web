@@ -1,0 +1,20 @@
+<main>
+  <h1 class="lg-heading">
+    My
+    <span class="text-secondary">Blog</span>
+  </h1>
+
+  <h2 class="sm-heading center">I want to learn about
+    <mat-select [(ngModel)]="selectedTopic">
+      <mat-option *ngFor="let blogTopic of blogTopics" [value]="blogTopic.name">
+        <img class="topic" [src]="blogTopic.imgPath" width="50" height="50" alt="blogTopic.imgAlt">
+        {{ blogTopic.name }}
+      </mat-option>
+    </mat-select>
+  </h2>
+
+  <ng-container *ngFor="let blogTopic of blogTopics | slice: 1">
+    <app-topic-list [selectedTopic]="selectedTopic" [blogTopic]="blogTopic"></app-topic-list>
+  </ng-container>
+
+</main>

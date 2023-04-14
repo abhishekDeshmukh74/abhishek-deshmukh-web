@@ -13,12 +13,15 @@ import { IComment } from './comment-card.interfaces';
 
 export class CommentCardComponent implements OnInit {
 
-  @Input() comment: IComment;
-  @Input() userId: string;
-  @Input() isLoggedIn: boolean;
+  @Input()
+  comment!: IComment;
+  @Input()
+  userId!: string;
+  @Input()
+  isLoggedIn!: boolean;
 
-  commentLiked: boolean;
-  commentDisliked: boolean;
+  commentLiked: boolean | undefined;
+  commentDisliked: boolean | undefined;
 
   constructor(
     private alertService: AlertService,

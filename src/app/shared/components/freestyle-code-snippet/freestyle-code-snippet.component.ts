@@ -8,11 +8,13 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FreestyleCodeSnippetComponent implements OnInit {
-  @Input() code: string;
-  @Input() filePath: string;
+  @Input()
+  code!: string;
+  @Input()
+  filePath!: string;
   readonly EXTENSION_FROM_FILENAME = CONSTANTS.REGEX.EXTENSION_FROM_FILENAME;
 
-  fileIcon: string;
+  fileIcon: string | undefined;
   config = [
     {
       extensions: ['js', 'jsx'],

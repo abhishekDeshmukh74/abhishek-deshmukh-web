@@ -1,0 +1,25 @@
+<div *ngIf="selectedTopic === BLOG_TOPICS.EVERYTHING || selectedTopic === blogTopic.name">
+
+    <ng-container *ngIf="blogTopic.topicList?.length">
+        <h2 class="sm-heading">
+            {{ blogTopic.name }}
+        </h2>
+
+        <div class="projects">
+            <ng-container *ngFor="let blogCard of blogTopic['topicList'] | slice: 0: maxSize">
+                <app-blog-card [blogCard]="blogCard"></app-blog-card>
+            </ng-container>
+        </div>
+    </ng-container>
+    <div class="load-more" *ngIf="blogTopic.topicList.length > maxSize" (click)="onLoadMore()">
+        Load More
+    </div>
+
+    <ng-container *ngIf="!blogTopic.topicList?.length">
+        <h2 class="sm-heading">
+            {{ blogTopic.name }}
+        </h2>
+        <p>Coming soon</p>
+    </ng-container>
+
+</div>

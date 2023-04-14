@@ -1,0 +1,219 @@
+<main class="blog-post">
+
+    <div class="content">
+
+        <app-post-header [title]="title" [date]="date"></app-post-header>
+
+        <p>
+            In JavaScript, the console API is an object which provides access to the browser debugging console. We as
+            developers use console.log() a lot to check the values of the variables. But the console API can do so much
+            more! If you only use console.log() for debugging, I guarantee after reading this post you will take your
+            JavaScript debugging to the next level with some of the most interesting console methods
+        </p>
+
+        <p>So without any further delay, Let's get started!</p>
+
+        <h2>1: clear(), debug(), warn(), error()</h2>
+
+        <p>You may probably know the methods. They will print passed string with the appropriate color</p>
+
+        <ul>
+            <li>
+                <span class="text-secondary">console.clear(): </span> Clears the logs in the console
+            </li>
+            <li>
+                <span class="text-secondary"> console.debug(): </span> Logs message to the web console at the "debug"
+                log level. The message is only displayed to the user if the console is configured to display debug
+                output
+            </li>
+            <li>
+                <span class="text-secondary">console.warn(): </span> Logs warning message to the console. By default,
+                the warning message will be highlighted with yellow color
+            </li>
+            <li>
+                <span class="text-secondary">console.error(): </span> Logs error message to the console. Useful in
+                testing code. By default, the error message will be highlighted with red color
+            </li>
+            <li class="three-images">
+                <app-image src="assets/img/blog/console-object-methods/screenshot-of-console-debug.png"
+                    alt="Screenshot of console debug">
+                </app-image>
+                <app-image src="assets/img/blog/console-object-methods/screenshot-of-console-warn.png"
+                    alt="Screenshot of console warn">
+                </app-image>
+                <app-image src="assets/img/blog/console-object-methods/screenshot-of-console-error.png"
+                    alt="Screenshot of console error">
+                </app-image>
+            </li>
+        </ul>
+
+        <h2>2: console.assert()</h2>
+
+        <p>
+            console.assert() takes 2 arguments. If the first argument is falsy only then it displays the second
+            argument. If the assertion is true, nothing happens. This method is useful in some cases where you may want
+            to print something conditionally. Now you don't have to print logs by wrapping them in if-else :D
+        </p>
+
+        <app-image src="assets/img/blog/console-object-methods/screenshot-of-console-assert.png"
+            alt="Screenshot of console assert">
+        </app-image>
+
+        <p>
+            You can see that the console message has been printed 2 times out of 4 iterations i.e. only when i is not even
+        </p>
+
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <h2>3: console.table()</h2>
+
+        <p>Display an object or array in a very nice table view making it more readable</p>
+
+        <p>
+            This function takes one mandatory argument data, which must be an array or an object, and one more optional
+            parameter columns. Each element in the array or enumerable property if data is an object will be a row in
+            the table. This makes it easier to see what you’re dealing with!
+        </p>
+
+        <p>Display array</p>
+        <app-image src="assets/img/blog/console-object-methods/screenshot-of-console-table-array.png"
+            alt="Screenshot of console table array">
+        </app-image>
+
+        <p>Display object</p>
+        <app-image src="assets/img/blog/console-object-methods/screenshot-of-console-table-object.png"
+            alt="Screenshot of console table object">
+        </app-image>
+
+        <h2>4: console.group() and console .groupCollapsed()</h2>
+
+        <p>
+            After writing so many logs, you might want to organize them. You can use nested groups to help organize your
+            output by visually associating related messages. To create a new nested block, call console.group(). The
+            console.groupCollapsed() method is similar, but the new block is collapsed and requires clicking a button to
+            read it
+        </p>
+
+        <p>
+            This can also be used when you have a few log statements within a function and you want to be able to see
+            the scope corresponding to each statement
+        </p>
+
+        <app-image src="assets/img/blog/console-object-methods/screenshot-of-console-group-example.png"
+            alt="Screenshot of console group example">
+        </app-image>
+
+        <h2>5: console.dir()</h2>
+
+        <p>
+            The console.dir() method prints an interactive list of object properties of a specified object while
+            console.log() prints a toString representation of the object
+        </p>
+
+        <app-image src="assets/img/blog/console-object-methods/screenshot-of-console-dir-object.png"
+            alt="Screenshot of console dir object">
+        </app-image>
+
+        <h2>6: console.count()</h2>
+
+        <p>
+            It will take an optional label as an argument and every time it is called, it will increment the count by 1.
+            If a label is provided, it will log the number of times console.count() has been called with the provided
+            label else it will log the number of times console.count() has been called at that particular line. It can
+            be used in a case of recurring function or code to keep count of how many times your code executed
+        </p>
+
+        <app-image src="assets/img/blog/console-object-methods/screenshot-of-console-count-object.png"
+            alt="Screenshot of console count object">
+        </app-image>
+
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <h2>7: console.time() with console.timeEnd()</h2>
+
+        <p>
+            These are useful in analyzing the performance of your code in execution time, Use console.time() by
+            providing an argument before the code then use console.timeEnd() with the same console.timeEnd() to see the
+            time it took to run the code
+        </p>
+
+        <p>
+            For example, Let's take a big-sized array of 10000000 numbers and we will compare performances of basic for,
+            for-of, and for each loop. Let's find out which loop iterates the array fast
+        </p>
+
+        <app-freestyle-code-snippet [code]="loopComparisonSnippet" [filePath]="'example.js'">
+        </app-freestyle-code-snippet>
+
+        <p>
+            If you run the above code, you'll see an output similar to the below output. We can see that basic for
+            loop took the least time to iterate over our big-sized array followed by forEach and for-of loop
+        </p>
+
+        <app-freestyle-code-snippet [code]="loopComparisonOutput" [filePath]="'example.js output'">
+        </app-freestyle-code-snippet>
+
+        <p>
+            If you want to know why basic for loop is fast compared to others then that's a question for another day.
+            So that's how console.time() with console.timeEnd() can be used to calculate elapsed time
+        </p>
+
+        <h2>8: console.trace()</h2>
+
+        <p>
+            Many times we want to get track of which function is called by which function. The console.trace() method
+            will come to your rescue
+        </p>
+
+        <h2>9: console.memory</h2>
+
+        <p>
+            If you are looking for a memory leak for finding the root cause of the performance issue, you might want to
+            use the console.memory property to check out your heap size status
+        </p>
+
+        <app-image src="assets/img/blog/console-object-methods/screenshot-of-console-memory-print.png"
+            alt="Screenshot of console memory print">
+        </app-image>
+
+        <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+        <h2>Bonus Tip (Add CSS to console messages)</h2>
+
+        <p>
+            We all get bored by looking at the same style of console log messages. There's a way to add CSS by which
+            you make your logs look more appealing. Use the special %c character to add some custom CSS flavor to the
+            console
+        </p>
+
+        <p>console.log('%c LOG_MESSAGE', 'CSS')</p>
+
+        <app-image src="assets/img/blog/console-object-methods/screenshot-of-console-log-css.png"
+            alt="Screenshot of console log css">
+        </app-image>
+
+        <h2>Conclusion</h2>
+
+        <p>
+            We have discussed almost every cool JavaScript console method in the Console API and you now have a larger
+            scope of the Console API methods. Using these methods can make debugging a bit more productive
+        </p>
+
+        <app-share-post-section [hashtags]="hashtags" [text]="shareText" [image]="image">
+        </app-share-post-section>
+
+        <app-related-post-section [excludeTitle]="title" [blogList]="es6BlogCardList"></app-related-post-section>
+
+        <app-comments-section [blogPostTitle]="title"></app-comments-section>
+
+    </div>
+
+    <div class="ad-section">
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+    </div>
+
+
+</main>

@@ -1,0 +1,301 @@
+<main class="blog-post">
+
+    <div class="content">
+
+        <app-post-header [title]="title" [date]="date"></app-post-header>
+
+        <p>
+            Events are the mechanism by which JavaScript knows if a user or the browser manipulated an HTML page. For
+            example, if the user clicks a button on a page, presses a keyboard button, the page has completely loaded
+            are some of the examples of events. It won't be an exaggeration if we say - Events are the heart of
+            JavaScript. Due to which interviewers often ask questions related to events. This will be a one-stop post
+            for information related to events. I will also cover frequently asked interview questions related to events
+        </p>
+
+        <p>
+            In JavaScript, we handle events by attaching event listeners to an element. Events are roughly classified
+            into 8 sections
+        </p>
+
+
+        <ul>
+            <li>User interface events</li>
+            <li>Focus and blur events</li>
+            <li>Mouse events</li>
+            <li>Keyboard events</li>
+            <li>Form events</li>
+            <li>Mutation events and observers</li>
+            <li>HTML events</li>
+            <li>CSS events</li>
+        </ul>
+
+        <p>Let's cover some events in each event type briefly</p>
+
+        <p>
+            You can go <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://developer.mozilla.org/en-US/docs/Web/Events">here </a>
+            to check out all the available events in JavaScript
+        </p>
+
+        <h2>User interface events</h2>
+
+        <ul>
+            <li>onclick - The onclick event occurs when the user clicks on an element. It allows the
+                programmer to execute a JavaScript's function when an element gets clicked
+            </li>
+            <li>onkeypress - The onkeypress event occurs when the user presses a key on a keyboard</li>
+            <li>onscroll - The onscroll event occurs when an element's scrollbar is being scrolled</li>
+            <li>onload - The onload event occurs when an object has been loaded. It is most often used within the body
+                element to execute a script once a web page has completely loaded all content</li>
+            <li>onunload - The onunload occurs when the user navigates away from the page by ( clicking on a link,
+                submitting a form, closing the browser window, etc.)
+            </li>
+            <li>onerror - The onerror event is triggered if an error occurs while loading an external file like a
+                document or an image
+            </li>
+        </ul>
+
+        <h2>Focus and blur events</h2>
+
+        <ul>
+            <li>onfocus - The onfocus event fires when an element has gained focus</li>
+            <li>onblur - The blur event fires when an element has lost focus</li>
+        </ul>
+
+        <h2>Mouse events</h2>
+
+        <ul>
+            <li>click - The click event fires when the user clicks on the left mouse button. This event also fires if
+                the user presses the Enter key on the keyboard when an element has the focus
+            </li>
+            <li>dblclick - This event fires when the user clicks the primary mouse button, in quick succession, twice
+            </li>
+            <li>mousedown - The mousedown event occurs when the user clicks down on any mouse button</li>
+            <li>mouseup - The mouseup event occurs when the user releases a mouse button</li>
+        </ul>
+
+        <h2>Keyboard events</h2>
+
+        <ul>
+            <li>keypress - The keypress event fires when a user presses a key that results in printing a character on
+                the screen. This event will not fire for the enter, tab, or arrow keys
+            </li>
+            <li>keyup - The keyup event occurs when the user releases a key on the keyboard</li>
+            <li>keydown - The keydown event occurs when the user presses any key in the keyboard. If the user holds down
+                the key, this event fires repeatedly
+            </li>
+        </ul>
+
+        <h2>Form events</h2>
+
+        <ul>
+            <li>submit - The submit event fires when the user submits an HTML form</li>
+            <li>input - The input event fires when the status of various form elements change</li>
+        </ul>
+
+        <h2>Mutation events and observers</h2>
+
+        <p>
+            Whenever the structure of the DOM tree changes, it triggers a mutation event. The change in the tree can
+            occur because of the addition or removal of a DOM node through JavaScript code
+        </p>
+        <ul>
+            <li>DOMNodeInserted</li>
+            <li>DOMNodeRemoved</li>
+            <li>DOMSubtreeModified</li>
+        </ul>
+
+        <h2>HTML events</h2>
+
+        <p>These page-level events are included in HTML5 specification handling events such as gestures and movements
+        </p>
+
+        <ul>
+            <li>hashchange - The hashchange event fires when the URL hash changes without refreshing the entire window
+            </li>
+            <li>beforeunload - The beforeunload event fires on the window object just before the page unloads</li>
+        </ul>
+
+        <h2>CSS events</h2>
+
+        <p>These events are fired when JavaScript encounters a CSS element</p>
+
+        <ul>
+            <li>transitionend - This event fires when a CSS transition ends in a program. It is useful to notify the
+                script of the end of transition so that it can take further action
+            </li>
+            <li>animationstart - This event fires when CSS animation starts in the program</li>
+            <li>animationend - This event fires when a CSS animation comes to an end. This is useful when we want to act
+                just after the animation finishes
+            </li>
+        </ul>
+
+        <mat-divider></mat-divider>
+
+        <h2>JavaScript interview questions related to Events</h2>
+
+        <p>
+            Following are the most asked questions related to JavaScript events. You must know answers to these
+            questions to ace in the interview
+        </p>
+
+        <ul>
+            <li>Event Bubbling vs Capturing?</li>
+            <li>What does event.stopPropagation() do?</li>
+            <li>What does event.stopImmediatePropagation() do?</li>
+            <li>What does event.preventDefault() do?</li>
+            <li>What is an Event Loop?</li>
+        </ul>
+
+        <h2>Event Bubbling vs Capturing</h2>
+
+        <p>Event bubbling and capturing are two phases of event propagation in the HTML DOM API</p>
+
+        <p>
+            Event Bubbling is the mechanism where an event propagates up to the root element through the leaf
+            elements of HTML DOM. The event is first captured and handled by the innermost element and then propagated
+            to outer elements
+        </p>
+
+        <p>Let's see the syntax to add an event listener to an HTML element and then we will see a demo of the bubbling
+            vs capturing phase
+        </p>
+
+        <app-freestyle-code-snippet [code]="eventListenerAddSnippet" [filePath]="'index.js'">
+        </app-freestyle-code-snippet>
+
+        <p>Look at the above code of adding an event listener to the HTML elements</p>
+
+        <p>There are two possible values of the capture key</p>
+
+        <ul>
+            <li>when set false (default): handler is set on the bubbling phase</li>
+            <li>when set true: handler is set on the capturing phase</li>
+        </ul>
+
+        <p>
+            Let's understand what bubbling and capturing with the help of an example. We will have 3 nested HTML divs
+            and observer the event propagation flow by adding event listener to each div
+        </p>
+
+        <app-image src="assets/img/blog/js-events/three_nested_divs_screenshot.png"
+            alt="screenshot of three nested divs">
+        </app-image>
+
+        <app-freestyle-code-snippet [code]="eventBubblingHtmlSnippet" [filePath]="'event bubbling demo.html'">
+        </app-freestyle-code-snippet>
+
+        <app-freestyle-code-snippet [code]="eventBubblingJsSnippet" [filePath]="'event bubbling demo.js'">
+        </app-freestyle-code-snippet>
+
+        <p>
+            Consider the above example. We have a nested box of HTML divs. Each div is listening to the respective
+            click events. If we execute the above code we will get the following alerts - Clicked on div 1, Clicked on
+            div 2, and finally Clicked on div 3. The click event was firstly executed on the child and then propagated
+            to the parent div and so on. Due to the bubbling of event from child to parent, this behavior is event
+            bubbling
+        </p>
+
+
+        <p>The capturing phase is used very rarely, usually we handle events on bubbling</p>
+
+        <p>
+            Event Capturing is the mechanism where an event propagate from the root element to the leaf elements of HTML
+            DOM. The event is first captured and handled by the outermost element and then propagated
+            to inner elements
+        </p>
+
+        <app-freestyle-code-snippet [code]="eventCapturingHtmlSnippet" [filePath]="'event capturing demo.html'">
+        </app-freestyle-code-snippet>
+
+        <app-freestyle-code-snippet [code]="eventCapturingJsSnippet" [filePath]="'event capturing demo.js'">
+        </app-freestyle-code-snippet>
+
+        <p>
+            If we execute the above code we will get following alerts - Clicked on div 3, Clicked on div 2
+            and finally Clicked on div 1. The click event was firstly executed on the parent and the propagated to the
+            child div and so on. This phase of propagation is known as event capturing
+        </p>
+
+        <p> Checkout this
+            <a class="text-secondary" target="_blank" rel="noreferrer"
+                href="https://github.com/abhishekDeshmukh74/event-bubbling-capturing">
+                Github Repository
+            </a> to get the code of the above examples
+        </p>
+
+        <h2>What does event.stopPropagation() do?</h2>
+
+        <p>
+            Event bubbling normally goes from the target element till &#60;html&#62;, and then to the document object,
+            and some events even reach the window object, calling all respective handlers on the path. Any handler can
+            decide that the event has been fully processed and stop the bubbling using the event.stopPropagation()
+            method
+        </p>
+
+        <p>
+            An event handler can stop the event by calling event.stopPropagation(), but that’s not recommended, because
+            we can’t be sure we won’t need it above, maybe for completely different things
+        </p>
+
+        <h2>What does event. stopImmediatePropagation() do?</h2>
+
+        <p>
+            If an element has multiple event handlers on a single event, then even if one of them stops the bubbling,
+            the other ones still execute
+        </p>
+
+        <p>
+            The event.stopPropagation() method stops the move upwards, but on the current element, all other handlers
+            will run. To stop the bubbling and prevent handlers on the current element from running, there’s a method
+            event.stopImmediatePropagation(). After it no other handlers execute
+        </p>
+
+
+        <h2>What does event.preventDefault() do?</h2>
+
+        <p>The event.preventDefault() method stops the default action of an element from happening</p>
+
+        <ul>
+            <li>Prevent a submit button from submitting a form</li>
+            <li>Prevent a link from following the URL</li>
+        </ul>
+
+        <h2>What is an Event loop?</h2>
+
+        <p>
+            The event loop is a single-threaded loop that watches the call stack and runs what’s there. If there’s
+            nothing in the call stack, then whatever is in the task queue will be dequeued and run by pushing it to the
+            call stack
+        </p>
+
+        <p>
+            To completely understand the working of the event loop, you should take the help of the following video. In
+            my opinion, this is the best resource to completely understand the working of the event loop
+        </p>
+
+        <iframe src="https://www.youtube.com/embed/8aGhZQkoFbQ"></iframe>
+
+        <h2>Summary</h2>
+
+        <p>
+            We have discussed JavaScript event types and understood different categories of events. We also covered most
+            of the common interview questions around events
+        </p>
+
+        <app-share-post-section [hashtags]="hashtags" [text]="shareText" [image]="image">
+        </app-share-post-section>
+
+        <app-related-post-section [excludeTitle]="title" [blogList]="es6BlogCardList"></app-related-post-section>
+
+        <app-comments-section [blogPostTitle]="title"></app-comments-section>
+
+    </div>
+
+    <div class="ad-section">
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+        <app-adsense-responsive-ad className="vertical-ad"></app-adsense-responsive-ad>
+    </div>
+
+</main>

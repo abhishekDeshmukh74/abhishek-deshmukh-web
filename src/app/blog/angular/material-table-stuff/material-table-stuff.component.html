@@ -1,0 +1,232 @@
+<main class="blog-post">
+
+  <div class="content">
+
+    <app-post-header [title]="title" [date]="date"></app-post-header>
+
+    <p>
+      In this post, you will learn how to add a data table using Angular Material. This data table is built on the
+      foundation of the CDK data-table. We are going to cover how to add pagination, sort, filter. This is a
+      step-by-step tutorial, so I invite you to code along. Here's the result of what this post will look like!
+    </p>
+
+    <app-image src="assets/img/blog/material-table/demo.gif" alt="Angular material table demo">
+    </app-image>
+
+    <p> So, without any further delay, let's dive in</p>
+
+    <h2>Prerequisites</h2>
+
+    <p>As a dummy server for data, I will be using <a class="text-secondary"
+        href="https://www.npmjs.com/package/json-server">
+        json-server</a> npm package for an API call. API response contains an array of superheroes that will
+      be displayed inside the table
+    </p>
+
+    <p>I have created a new Angular CLI project and removed all the Html code that was inside app.html.ts and then added
+      Angular material using
+      <span class="text-tertiary">ng add @angular/material</span> command.
+      Then I have added
+      <a class="text-secondary" href="https://www.npmjs.com/package/json-server">json-server</a>
+      npm package using
+      <span class="text-tertiary">npm i -D json-server</span> command
+      and added the following data in a db.json file inside root of this project
+    </p>
+
+
+    <p>
+      Now, When I run command
+      <span class="text-tertiary">json-server --watch db.json</span>, it will act as a mock server so when I hit http://localhost:3000/heros, I'll get the heros array as API response. Isn't it cool?
+    </p>
+
+    <app-freestyle-code-snippet [code]="dbJsonData" [filePath]="'db.json'">
+    </app-freestyle-code-snippet>
+
+    <p>Now that our fake backend is ready, Let's add code to use this data inside the angular material table</p>
+
+    <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+    <h2>Material table</h2>
+
+    <p>
+      An Angular material data table is a configurable
+      component for displaying tabular data. The table will take the
+      array as input and render a row for each object in the data array
+      Let's start with displaying data in our table
+    </p>
+
+    <p>let’s create a file
+      <span class="text-tertiary">app.interfaces.ts</span>
+      and add the following interface to it</p>
+
+    <app-freestyle-code-snippet [code]="iHeroInterfaceSnippet" [filePath]="'src/app/app.interfaces.ts'">
+    </app-freestyle-code-snippet>
+
+    <p>I am going to import MatFormFieldModule, MatInputModule, HttpClientModule, MatTableModule, MatPaginatorModule,
+      MatSortModule, MatProgressSpinnerModule modules inside this app so for that I've added an entry of these modules
+      inside the imports array of app.module.ts
+    </p>
+
+    <p>Here's what every module contains</p>
+
+    <ul>
+      <li> <span class="text-secondary">MatFormFieldModule</span> - This encompasses all the different types of form
+        fields that Angular Material has available
+      </li>
+      <li> <span class="text-secondary">MatInputModule</span> - This contains the components and directives for adding
+        Material design Input Boxes to our application (needed for the search input box)
+      </li>
+      <li><span class="text-secondary">HttpClientModule</span> - This is the module is used to perform HTTP requests
+      </li>
+      <li><span class="text-secondary">MatTableModule</span> - This is the core data table module, which includes the
+        mat-table component and many related components and directives
+      </li>
+      <li><span class="text-secondary">MatPaginatorModule</span> - This is a generic pagination module, that can be used
+        to paginate data in general
+      </li>
+      <li><span class="text-secondary">MatSortModule</span> - This is an optional module that allows adding sortable
+        headers to a data table
+      </li>
+      <li><span class="text-secondary">MatProgressSpinnerModule</span> - This module includes the progress indicator
+        component that we will be using to indicate that data is being loaded from the backend
+      </li>
+    </ul>
+
+    <app-freestyle-code-snippet [code]="importsArray" [filePath]="'src/app/app.module.ts'">
+    </app-freestyle-code-snippet>
+
+    <p>Add the following code in your
+      <span class="text-tertiary">app.component.ts</span> and
+      <span class="text-tertiary">app.html.ts</span>
+    </p>
+
+    <app-angular-code-snippet [tsCode]="initMatTableSnippet.tsCode" [htmlCode]="initMatTableSnippet.htmlCode"
+      [cssCode]="initMatTableSnippet.cssCode">
+    </app-angular-code-snippet>
+
+    <p>
+      The mat-table's dataSource attribute, we have passed the dataSource attribute which is of type MatTableDataSource.
+      Inside every ng-container tag, we define the column definition and the value to be displayed. It should be noted
+      that we must match the matColumnDef value with the property name of our IHero interface. Then in the first tr last
+      two tr tags we have passed displayedColumns array, and in the last tr, we define an order for our header columns
+      and the row definitions. At first, this implementation may feel overwhelming but later on, you'll get used to it
+    </p>
+
+    <p> You'll see the output on the screen like this</p>
+
+    <app-image src="assets/img/blog/material-table/screenshot_of_data_added_inside_table.png"
+      alt="screenshot of data added inside table">
+    </app-image>
+
+    <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+    <h2>Pagination</h2>
+
+    <p>To add pagination in the current table do the following changes in the existing table</p>
+
+    <ul>
+      <li>
+        Add mat-paginator after table tag is closed
+        <app-freestyle-code-snippet [code]="initMatPaginatorStart" [filePath]="'app.component.html'">
+        </app-freestyle-code-snippet>
+      </li>
+      <li>
+        Notice the #paginator id on the mat-paginator selector, we will access it through @ViewChild and pass it to
+        our dataSource object
+        <app-freestyle-code-snippet [code]="initMatPaginatorViewChild" [filePath]="'app.component.html'">
+        </app-freestyle-code-snippet> For apps below Angular 8, use the following syntax
+        <app-freestyle-code-snippet [code]="initMatPaginatorViewChildWithoutStatic" [filePath]="'app.component.html'">
+        </app-freestyle-code-snippet>
+      </li>
+      <li>Assign this paginator to dataSource.paginator property inside ngOnInit life cycle hook
+      </li>
+    </ul>
+
+    <p>After adding pagination, your code will look like this</p>
+
+    <app-angular-code-snippet [tsCode]="initMatPaginator.tsCode" [htmlCode]="initMatPaginator.htmlCode"
+      [cssCode]="initMatPaginator.cssCode">
+    </app-angular-code-snippet>
+
+    <h2>Sort</h2>
+
+    <p>To add sorting in the current table do the following changes in the existing table</p>
+
+    <ul>
+      <li>Add matSort directive on the table tag</li>
+      <li>Add mat-sort-header directive for each header cell that will trigger sorting
+      </li>
+      <li>Notice the #sort id on the mat-sort selector, we will access it through @ViewChild and pass it to our
+        dataSource object just like we did in the pagination section
+        <app-freestyle-code-snippet [code]="initMatSortViewChild" [filePath]="'app.component.html'">
+        </app-freestyle-code-snippet>
+        For apps below Angular 8, use the following syntax
+        <app-freestyle-code-snippet [code]="initMatSortViewChildWithoutStatic" [filePath]="'app.component.html'">
+        </app-freestyle-code-snippet>
+      </li>
+      <li>Assign this sort to dataSource.sort property inside ngOnInit life cycle hook
+      </li>
+    </ul>
+
+    <p>After adding sorting, your code will look like this</p>
+
+    <app-angular-code-snippet [tsCode]="initMatSort.tsCode" [htmlCode]="initMatSort.htmlCode"
+      [cssCode]="initMatSort.cssCode">
+    </app-angular-code-snippet>
+
+    <app-adsense-responsive-ad></app-adsense-responsive-ad>
+
+    <h2>Filter</h2>
+
+    <p>
+      In the last step, we are going to add the filter. I will add an input field on which user will enter words, the
+      table records on which searched word is found will only be displayed
+    </p>
+
+    <ul>
+      <li>I've added an input field and add added logic to filter the values
+        <app-freestyle-code-snippet [code]="filterInputFieldSnippet" [filePath]="'app.component.ts'">
+        </app-freestyle-code-snippet>
+      </li>
+      <li>
+        Assign this sort to the dataSource.filter property inside applyFilter method
+        <app-freestyle-code-snippet [code]="filterInputValueSnippet" [filePath]="'app.component.html'">
+        </app-freestyle-code-snippet>
+      </li>
+    </ul>
+
+    <p>After completing pagination, sorting, and filter, your code will look like this</p>
+
+    <app-angular-code-snippet [tsCode]="initMatFilter.tsCode" [htmlCode]="initMatFilter.htmlCode"
+      [cssCode]="initMatFilter.cssCode">
+    </app-angular-code-snippet>
+
+    <h2>Conclusion</h2>
+
+    <p>CONGRATS! You just learned how to add pagination, sort, filter in an Angular material table</p>
+
+    <p>If you want to find the whole code for this post. Go to
+      <a class="text-secondary" target="_blank" rel="noreferrer"
+        href="https://github.com/abhishekDeshmukh74/angular-material-datatable-pagination-sort-filter">
+        Github </a>
+    </p>
+
+    <app-share-post-section [hashtags]="hashtags" [text]="shareText" [image]="image">
+    </app-share-post-section>
+
+    <app-related-post-section [excludeTitle]="title" [blogList]="angularBlogCardList"></app-related-post-section>
+
+    <app-comments-section [blogPostTitle]="title"></app-comments-section>
+
+  </div>
+
+  <div class="ad-section">
+    <app-adsense-responsive-ad [className]="'vertical-ad'"></app-adsense-responsive-ad>
+    <app-adsense-responsive-ad [className]="'vertical-ad'"></app-adsense-responsive-ad>
+    <app-adsense-responsive-ad [className]="'vertical-ad'"></app-adsense-responsive-ad>
+    <app-adsense-responsive-ad [className]="'vertical-ad'"></app-adsense-responsive-ad>
+    <app-adsense-responsive-ad [className]="'vertical-ad'"></app-adsense-responsive-ad>
+    <app-adsense-responsive-ad [className]="'vertical-ad'"></app-adsense-responsive-ad>
+  </div>
+
+</main>

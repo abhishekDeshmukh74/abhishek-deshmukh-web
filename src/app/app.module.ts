@@ -14,27 +14,27 @@ import { JwtInterceptor, CredentialsInterceptor, ErrorInterceptor } from '@core/
 import { CONSTANTS } from '@constants';
 import { AdminGuard } from './admin/admin.guard';
 
-init({
-  dsn: CONSTANTS.SENTRY.DSN,
-});
+// init({
+//   dsn: CONSTANTS.SENTRY.DSN,
+// });
 
-@Injectable()
-export class SentryErrorHandler implements ErrorHandler {
-  handleError(error: any) {
-    const eventId = captureException(error.originalError || error);
-    showReportDialog({ eventId });
-  }
-}
+// @Injectable()
+// export class SentryErrorHandler implements ErrorHandler {
+//   handleError(error: any) {
+//     const eventId = captureException(error.originalError || error);
+//     showReportDialog({ eventId });
+//   }
+// }
 
 @NgModule({
   declarations: [AppComponent],
   providers: [
     MatSnackBarModule,
     AdminGuard,
-    {
-      provide: ErrorHandler,
-      useClass: SentryErrorHandler,
-    },
+    // {
+    //   provide: ErrorHandler,
+    //   useClass: SentryErrorHandler,
+    // },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,

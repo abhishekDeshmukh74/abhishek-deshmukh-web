@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { DeferLoadModule } from '@trademe/ng-defer-load';
+// import { DeferLoadModule } from '@trademe/ng-defer-load';
 
 import { ImageComponent } from './image.component';
 
@@ -10,7 +10,7 @@ import { ImageComponent } from './image.component';
   ],
   imports: [
     CommonModule,
-    DeferLoadModule,
+    // DeferLoadModule,
   ],
   exports: [
     ImageComponent

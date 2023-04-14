@@ -4,7 +4,7 @@ import { Directive, EventEmitter, HostListener, Input, Output } from '@angular/c
 
 export class CopyClipboardDirective {
 
-    @Input('appCopyClipboard') payload: string;
+    @Input('appCopyClipboard') payload: string | undefined;
     @Output() copied = new EventEmitter<string>();
     @HostListener('click', ['$event'])
 
@@ -18,7 +18,7 @@ export class CopyClipboardDirective {
         const listener = (e: ClipboardEvent) => {
             // tslint:disable-next-line: no-angle-bracket-type-assertion
             const clipboard = e.clipboardData || (window as any)['clipboardData'];
-            clipboard.setData('text', this.payload.toString());
+            clipboard.setData('text', this.payload?.toString());
             e.preventDefault();
 
             this.copied.emit(this.payload);

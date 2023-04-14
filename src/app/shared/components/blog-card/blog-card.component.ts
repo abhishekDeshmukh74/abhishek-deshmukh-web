@@ -11,7 +11,8 @@ import { BlogCard } from './blog-card.interfaces';
 
 export class BlogCardComponent implements OnInit {
 
-  @Input() blogCard: BlogCard;
+  @Input()
+  blogCard!: BlogCard;
   showSpinner = true;
   constructor() { }
 

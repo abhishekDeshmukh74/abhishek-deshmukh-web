@@ -19,23 +19,24 @@ import { commentValidations, commentValidationsMessages } from './comments-secti
 
 export class CommentsSectionComponent implements OnInit, OnDestroy {
 
-  @Input() blogPostTitle: string;
+  @Input()
+  blogPostTitle!: string;
   readonly commentValidationsMessages = commentValidationsMessages;
   maxSize = CONSTANTS.COMMENTS_DISPLAY_SIZE;
 
   user: IUser | any;
-  replyToUsers: string[];
-  isLoggedIn: boolean;
+  replyToUsers: string[] | undefined;
+  isLoggedIn!: boolean;
   showSpinner = true;
   showBtnSpinner = false;
   submitted = false;
-  commentForm = new FormControl(null, commentValidations);
+  commentForm = new FormControl(null, commentValidations) as any;
   comments: IComment[] = [];
   mentionConfig: any = {};
   commentedUniqueUsers: IUser[] | any = [];
   repliedUserIds: string[] = [];
 
-  private storageServiceSubscription: Subscription;
+  private storageServiceSubscription: Subscription | undefined;
 
   constructor(
     private alertService: AlertService,
@@ -98,7 +99,7 @@ export class CommentsSectionComponent implements OnInit, OnDestroy {
     this.submitted = true;
     this.showBtnSpinner = true;
 
-    if (this.commentForm.value.includes('@')) {
+    if (this.commentForm?.value?.includes('@')) {
       const matches: string[] = this.commentForm.value.match(CONSTANTS.REGEX.FULLNAME_FROM_TEXT);
       const matchedNames = matches.map((match) => match.split('@')[1]);
 
@@ -150,6 +151,6 @@ export class CommentsSectionComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.storageServiceSubscription.unsubscribe();
+    this.storageServiceSubscription?.unsubscribe();
   }
 }
