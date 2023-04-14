@@ -23,7 +23,10 @@ export class AdminGuard implements CanLoad {
 
     if (typeof localStorage !== 'undefined') {
       const user: string | any = localStorage?.getItem(CONSTANTS.LOCAL_STORAGE_KEYS.USER);
-      if (JSON.parse(user)?.email === 'abhishekdeshmukh74@gmail.com') {
+      if (
+        JSON.parse(user)?.email === 'abhishekdeshmukh74@gmail.com' ||
+        JSON.parse(user)?.email === 'pandeyragini55@gmail.com'
+      ) {
         return true;
       }
     }

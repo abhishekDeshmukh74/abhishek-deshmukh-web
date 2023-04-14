@@ -60,6 +60,7 @@ import { HomeComponent } from './portfolio/home/home.component';
           css: () => import('highlight.js/lib/languages/css'),
           javascript: () => import('highlight.js/lib/languages/javascript'),
         },
+        themePath: 'highlight.js/styles/dracula.css',
       },
     },
   ],
