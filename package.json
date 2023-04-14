@@ -23,8 +23,8 @@
     "prettier": "prettier --config ./.prettierrc --write \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\""
   },
   "engines": {
-    "node": "14.17.0",
-    "npm": "6.14.13"
+    "node": "18.15.0",
+    "npm": "9.6.4"
   },
   "private": true,
   "dependencies": {
