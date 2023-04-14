@@ -1,0 +1,16 @@
+.projects {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+// TODO: Remove duplicate code in mediaMd
+.about-info {
+    grid-template-areas:
+      'bio-image'
+      'bio'
+      'download-resume'
+      'job1'
+      'job2'
+      'job3'
+      'job4';
+    grid-template-columns: 1fr;
+}

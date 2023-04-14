@@ -1,0 +1,64 @@
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 400;
+  color: azure;
+
+  &.lg-heading {
+    font-size: 6rem;
+  }
+
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem;
+    background: rgba(lighten($primary-color, 2), 0.5);
+  }
+}
+
+ul {
+  &.pros-cons {
+    list-style-type: none;
+    li {
+      position: relative;
+      i {
+        position: absolute;
+        left: -29px;
+        top: 9px;
+      }
+
+    }
+  }
+}
+
+p, li {
+  font-size: 1.25rem;
+  line-height: 2.25rem;
+  text-align: justify;
+  // font-weight: 500;
+}
+
+.text-secondary {
+    color: $secondary-color;
+}
+
+.text-tertiary {
+    padding: 0.1rem 0.5rem;
+    background: rgba(lighten($primary-color, 2), 0.3);
+    border-radius: 10px;
+}
+
+.break-all {
+    word-break: break-all;
+}
+
+.blog-date {
+  font-size: 1rem;
+  color: $secondary-color;
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+.center {
+  text-align: center;
+}

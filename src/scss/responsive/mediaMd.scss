@@ -1,0 +1,109 @@
+main {
+  text-align: center;
+  padding: 1rem;
+
+  &.blog-post {
+      grid-template-areas:
+      "content"
+      "ad-section"
+      ;
+      grid-gap: 0;
+      grid-template-columns: repeat(1, 1fr);
+
+      .ad-section {
+       display: none;
+      }
+  }
+
+  .lg-heading {
+      line-height: 1;
+      margin-bottom: 1rem;
+  }
+}
+
+  ul.menu-nav,
+  div.menu-branding {
+    float: none;
+    width: 100%;
+    min-height: 0;
+
+    &.show {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .menu-nav {
+    height: 75vh;
+    transform: translate3d(-100%, 0, 0);
+    font-size: 24px;
+  }
+
+  .menu-branding {
+    height: 25vh;
+    transform: translate3d(100%, 0, 0);
+
+    .portrait {
+      // background: url('/assets/img/portrait_150.png');
+      width: 150px;
+      height: 150px;
+    }
+  }
+
+.about-info {
+  grid-template-areas:
+    'bio-image'
+    'bio'
+    'download-resume'
+    'job1'
+    'job2'
+    'job3'
+    'job4';
+  grid-template-columns: 1fr;
+}
+
+.projects {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.related-posts {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.comment {
+
+  grid-gap: 0.1rem;
+  $commentMargin: 2rem;
+
+  .comment-by-avatar {
+    margin: 1.2rem 1rem;
+  }
+
+  .comment-by-text {
+    font-size: 0.6rem;
+    margin-left: $commentMargin;
+  }
+
+  .comment-text {
+    font-size: 1rem;
+    padding-top: 0.2rem;
+    margin-left: $commentMargin;
+    line-height: 1.5rem;
+  }
+
+  .actions {
+
+    margin-left: 1.2rem;
+
+      .like {
+        width: 4rem;
+      }
+
+      .dislike {
+        width: 4rem;
+      }
+
+      .reply {
+        width: 4rem;
+      }
+  }
+}
