@@ -13,6 +13,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptor, CredentialsInterceptor, ErrorInterceptor } from '@core/interceptors';
 import { CONSTANTS } from '@constants';
 import { AdminGuard } from './admin/admin.guard';
+import { HomeComponent } from './portfolio/home/home.component';
 
 // init({
 //   dsn: CONSTANTS.SENTRY.DSN,
@@ -27,7 +28,7 @@ import { AdminGuard } from './admin/admin.guard';
 // }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent],
   providers: [
     MatSnackBarModule,
     AdminGuard,
