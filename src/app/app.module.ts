@@ -53,14 +53,10 @@ import { AdminGuard } from './admin/admin.guard';
     {
       provide: HIGHLIGHT_OPTIONS,
       useValue: {
-        // @ts-ignore
         coreLibraryLoader: () => import('highlight.js/lib/core'),
         languages: {
-          // @ts-ignore
           typescript: () => import('highlight.js/lib/languages/typescript'),
-          // @ts-ignore
           css: () => import('highlight.js/lib/languages/css'),
-          // @ts-ignore
           javascript: () => import('highlight.js/lib/languages/javascript'),
         },
       },
