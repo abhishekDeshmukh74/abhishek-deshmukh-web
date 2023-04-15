@@ -81,7 +81,7 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   getDepth(outlet: RouterOutlet): number {
-    return outlet.activatedRouteData.depth;
+    return outlet.activatedRouteData['depth'];
   }
 
   ngOnDestroy() {
