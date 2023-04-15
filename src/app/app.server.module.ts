@@ -3,11 +3,9 @@ import { ServerModule } from '@angular/platform-server';
 
 import { AppModule } from './app.module';
 import { AppComponent } from './app.component';
-import { StorageService } from '@shared/services';
 
 @NgModule({
   imports: [AppModule, ServerModule],
-  providers: [StorageService],
   bootstrap: [AppComponent],
 })
 export class AppServerModule {}
