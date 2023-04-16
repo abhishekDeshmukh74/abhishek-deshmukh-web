@@ -2,7 +2,6 @@
   "name": "abhishek-deshmukh-frontend",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
     "serve": "ng s -o",
     "start": "npm run serve:ssr",
     "build": "npm run build:ssr",
