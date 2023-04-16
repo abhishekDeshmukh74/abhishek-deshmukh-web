@@ -8,7 +8,7 @@ import { IJob } from 'src/app/portfolio/about-me/job-card/job-card.interfaces';
   styleUrls: ['./about-me.component.scss'],
 })
 export class AboutMeComponent implements OnInit {
-  age = 25;
+  age = 27;
   nationality = 'Indian';
   email = 'abhishekdeshmukh74@gmail.com';
   phone = '+91 8007916705';
@@ -57,7 +57,8 @@ export class AboutMeComponent implements OnInit {
     {
       title: 'Affinidi',
       role: 'Full stack Engineer',
-      description: '',
+      description:
+        'Front end applications development in ReactJS for and API development in NodeJS express',
       companyUrl: 'https://www.affinidi.com/',
       companyAriaLabel: 'Affinidi',
       tooltipTitle: 'Go to Affinidi website',
