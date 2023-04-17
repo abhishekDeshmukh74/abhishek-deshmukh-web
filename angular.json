@@ -31,7 +31,7 @@
               "src/robots.txt",
               "src/ads.txt",
               "src/sitemap.xml",
-              "src/manifest.webmanifest",
+              "src/manifest.json",
               "src/google160b5eb16a697549.html",
               "src/service-worker.js"
             ],
@@ -106,7 +106,6 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-              "src/manifest.webmanifest",
               "src/manifest.json"
             ],
             "styles": [
