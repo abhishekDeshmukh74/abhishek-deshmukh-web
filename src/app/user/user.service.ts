@@ -13,7 +13,7 @@ export class UserService {
     private http: HttpClient,
   ) { }
 
-  getNotifications(userId: string, pageNumber: number = 1) {
+  getNotifications(userId: string, pageNumber = 1) {
     if (!userId) {
       throw new Error('No user logged in');
     }

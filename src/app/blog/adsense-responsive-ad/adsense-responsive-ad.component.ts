@@ -10,7 +10,7 @@ declare const window: any;
 
 export class AdsenseResponsiveAdComponent implements AfterViewInit {
 
-  @Input() className: string = 'responsive-ad';
+  @Input() className = 'responsive-ad';
 
   constructor() { }
 
