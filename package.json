@@ -7,8 +7,6 @@
     "build": "npm run build:ssr",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "dyno:hours": "heroku ps --app abhishek-deshmukh-frontend",
-    "heroku-logs": "heroku logs -t --app abhishek-deshmukh-frontend",
     "lint": "tslint --fix \"src/**/*.ts\"",
     "npm:update": "npm update",
     "stats": "ng build --configuration production --named-chunks --stats-json && webpack-bundle-analyzer dist/browser/stats.json",
@@ -18,7 +16,6 @@
     "build:ssr": "ng build --configuration production && ng run abhishek-deshmukh-frontend:server",
     "prerender": "ng run abhishek-deshmukh-frontend:prerender",
     "backend": "cd ../abhishek-deshmukh-api && node dist/server",
-    "backend-logs": "cd ../abhishek-deshmukh-api && npm run heroku-logs",
     "prettier": "prettier --config ./.prettierrc --write \"src/{app,environments,assets}/**/*{.ts,.js,.json,.css,.scss}\""
   },
   "engines": {
