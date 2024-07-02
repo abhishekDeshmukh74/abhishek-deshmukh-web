@@ -63,6 +63,15 @@ export class AboutMeComponent implements OnInit {
       companyAriaLabel: 'Affinidi',
       tooltipTitle: 'Go to Affinidi website',
     },
+    {
+      title: 'Avaya',
+      role: 'Software Engineer 3',
+      description:
+        'Developing/maintaining UI portal Outbound Campaigns/Contacts in ReactJS and backend services in Java Spring boot',
+      companyUrl: 'https://www.avaya.com/en/',
+      companyAriaLabel: 'Avaya',
+      tooltipTitle: 'Go to Avaya website',
+    },
   ];
 
   constructor() {}
