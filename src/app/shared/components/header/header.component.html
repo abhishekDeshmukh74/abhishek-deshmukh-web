@@ -14,11 +14,12 @@
         <mat-icon>notifications_active</mat-icon>
         <span>Subscribe to Blog</span>
       </button>
-      <button *ngIf="user.email === 'abhishekdeshmukh74@gmail.com'" mat-menu-item (click)="onAdmin()">
+      <button *ngIf="user.email === 'abhishekdeshmukh74@gmail.com' || user.email === 'pandeyragini55@gmail.com'"
+        mat-menu-item (click)="onAdmin()">
         <mat-icon>admin_panel_settings</mat-icon>
         <span>Admin</span>
       </button>
-      <button *ngIf="user.email === 'abhishekdeshmukh74@gmail.com' || user.email === 'rushikesh378@gmail.com'"
+      <button *ngIf="user.email === 'abhishekdeshmukh74@gmail.com' || user.email === 'pandeyragini55@gmail.com'"
         mat-menu-item (click)="onNotification()">
         <mat-icon [matBadge]="unreadNotifications">announcement</mat-icon>
         <span>Notifications</span>
