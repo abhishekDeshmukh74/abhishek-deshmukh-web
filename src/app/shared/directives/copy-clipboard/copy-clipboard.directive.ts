@@ -1,6 +1,6 @@
 import { Directive, EventEmitter, HostListener, Input, Output } from '@angular/core';
 
-@Directive({ selector: '[appCopyClipboard]' })
+@Directive({ selector: '[appCopyClipboard]', standalone: false })
 
 export class CopyClipboardDirective {
 
