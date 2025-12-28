@@ -1,23 +1,20 @@
 import 'zone.js/node';
 
 import { APP_BASE_HREF } from '@angular/common';
-import { CommonEngine } from '@angular/ssr';
+import { AngularAppEngine } from '@angular/ssr';
 import * as compression from 'compression';
 import * as express from 'express';
 import { existsSync } from 'fs';
 import * as helmet from 'helmet';
 import { join } from 'path';
 
-import bootstrap from './src/main.server';
 import { StorageService } from '@shared/services';
 
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): express.Express {
   const server = express();
   const distFolder = join(process.cwd(), 'dist/abhishek-deshmukh-frontend/browser');
-  const indexHtml = existsSync(join(distFolder, 'index.original.html')) ? 'index.original.html' : 'index.html';
-
-  const commonEngine = new CommonEngine();
+  const angularAppEngine = new AngularAppEngine();
 
   server.set('view engine', 'html');
   server.set('views', distFolder);
@@ -33,20 +30,39 @@ export function app(): express.Express {
     maxAge: '1y'
   }));
 
-  // All regular routes use the Universal engine
-  server.get('*', (req, res, next) => {
-    const { protocol, originalUrl, baseUrl, headers } = req;
+  // All regular routes use the Angular app engine
+  server.use('*', (req, res, next) => {
+    angularAppEngine
+      .handle(req as any)
+      .then((response) => {
+        if (response) {
+          res.status(response.status);
+          response.headers.forEach((value: string, key: string) => {
+            res.setHeader(key, value);
+          });
 
-    commonEngine
-      .render({
-        bootstrap,
-        documentFilePath: indexHtml,
-        url: `${protocol}://${headers.host}${originalUrl}`,
-        publicPath: distFolder,
-        providers: [{ provide: APP_BASE_HREF, useValue: baseUrl }],
+          // Convert Web Streams API to Node.js Stream
+          const reader = response.body?.getReader();
+          if (reader) {
+            const readChunk = () => {
+              reader.read().then(({ done, value }: { done: boolean; value?: Uint8Array }) => {
+                if (done) {
+                  res.end();
+                  return;
+                }
+                res.write(Buffer.from(value as Uint8Array));
+                readChunk();
+              }).catch((err: Error) => next(err));
+            };
+            readChunk();
+          } else {
+            res.end();
+          }
+        } else {
+          res.status(404).send('Not found');
+        }
       })
-      .then((html) => res.send(html))
-      .catch((err) => next(err));
+      .catch((err: Error) => next(err));
   });
 
   return server;
