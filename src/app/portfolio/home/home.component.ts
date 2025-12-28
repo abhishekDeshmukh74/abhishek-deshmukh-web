@@ -17,12 +17,12 @@ export class HomeComponent implements OnInit {
   description2 = 'Not Your Average Software Engineer ;)';
 
   socialMediaConfigs: ISocialMediaConfig[] = [
-    {
-      icon: 'fa-facebook',
-      url: `https://www.facebook.com/${CONSTANTS.USERNAMES.FACEBOOK}`,
-      ariaLabel: 'Facebook',
-      tooltipTitle: 'My Facebook profile'
-    },
+    // {
+    //   icon: 'fa-facebook',
+    //   url: `https://www.facebook.com/${CONSTANTS.USERNAMES.FACEBOOK}`,
+    //   ariaLabel: 'Facebook',
+    //   tooltipTitle: 'My Facebook profile'
+    // },
     {
       icon: 'fa-linkedin',
       url: `https://www.linkedin.com/in/${CONSTANTS.USERNAMES.LINKEDIN}`,
