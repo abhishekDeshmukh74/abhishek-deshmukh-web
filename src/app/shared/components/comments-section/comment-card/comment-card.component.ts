@@ -9,6 +9,7 @@ import { IComment } from './comment-card.interfaces';
   selector: 'app-comment-card',
   templateUrl: './comment-card.component.html',
   styleUrls: ['./comment-card.component.scss'],
+  standalone: false
 })
 
 export class CommentCardComponent implements OnInit {

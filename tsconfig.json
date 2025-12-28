@@ -3,6 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
+    "typeRoots": ["node_modules/@types", "src/types"],
     "paths": {
       "@constants": ["src/environments/constants.ts"],
       "@environment": ["src/environments/environment.ts"],
@@ -20,7 +21,7 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "target": "ES2022",
     "module": "ES2022",

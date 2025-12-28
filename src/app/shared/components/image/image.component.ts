@@ -4,7 +4,8 @@ import { ChangeDetectionStrategy, Component, Input, OnInit, Output, EventEmitter
   selector: 'app-image',
   templateUrl: './image.component.html',
   styleUrls: ['./image.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 
 export class ImageComponent implements OnInit {

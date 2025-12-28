@@ -5,6 +5,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   templateUrl: './post-header.component.html',
   styleUrls: ['./post-header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 
 export class PostHeaderComponent implements OnInit {

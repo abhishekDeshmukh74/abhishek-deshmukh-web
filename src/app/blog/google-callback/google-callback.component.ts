@@ -8,7 +8,8 @@ import { BlogService } from '../blog.service';
 @Component({
   selector: 'app-google-callback',
   templateUrl: './google-callback.component.html',
-  styleUrls: ['./google-callback.component.scss']
+  styleUrls: ['./google-callback.component.scss'],
+  standalone: false
 })
 
 export class GoogleCallbackComponent implements OnInit {

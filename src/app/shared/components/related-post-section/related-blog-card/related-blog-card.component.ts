@@ -6,6 +6,7 @@ import { BlogCard } from '../../blog-card/blog-card.interfaces';
   templateUrl: './related-blog-card.component.html',
   styleUrls: ['./related-blog-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 
 export class RelatedBlogCardComponent implements OnInit {

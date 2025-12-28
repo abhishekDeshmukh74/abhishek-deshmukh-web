@@ -6,7 +6,8 @@ import { IJob } from './job-card.interfaces';
   selector: 'app-job-card',
   templateUrl: './job-card.component.html',
   styleUrls: ['./job-card.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 
 export class JobCardComponent implements OnInit {

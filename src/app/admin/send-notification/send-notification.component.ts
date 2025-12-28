@@ -11,7 +11,8 @@ import { NotificationRequest, NotificationTopicMeta } from './send-notification.
 @Component({
   selector: 'app-send-notification',
   templateUrl: './send-notification.component.html',
-  styleUrls: ['./send-notification.component.scss']
+  styleUrls: ['./send-notification.component.scss'],
+  standalone: false
 })
 
 export class SendNotificationComponent implements OnInit {

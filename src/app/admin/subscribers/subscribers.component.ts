@@ -10,7 +10,8 @@ import { ISubscriber } from './subscribers.interfaces';
 @Component({
   selector: 'app-subscribers',
   templateUrl: './subscribers.component.html',
-  styleUrls: ['./subscribers.component.scss']
+  styleUrls: ['./subscribers.component.scss'],
+  standalone: false
 })
 
 export class SubscribersComponent implements OnInit {

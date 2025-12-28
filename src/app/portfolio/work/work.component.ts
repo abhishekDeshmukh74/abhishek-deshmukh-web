@@ -5,7 +5,8 @@ import { IProject } from '@shared/components/project-card/project-card.interface
 @Component({
   selector: 'app-work',
   templateUrl: './work.component.html',
-  styleUrls: ['./work.component.scss']
+  styleUrls: ['./work.component.scss'],
+  standalone: false
 })
 
 export class WorkComponent implements OnInit {

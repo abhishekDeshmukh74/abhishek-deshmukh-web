@@ -3,6 +3,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 @Pipe({
     name: 'shortNumber',
     pure: true,
+    standalone: false
 })
 
 export class ShortNumberPipe implements PipeTransform {

@@ -7,6 +7,7 @@ import { IProject } from './project-card.interfaces';
   templateUrl: './project-card.component.html',
   styleUrls: ['./project-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 
 export class ProjectCardComponent implements OnInit {

@@ -1,6 +1,6 @@
 <div *ngIf="selectedTopic === BLOG_TOPICS.EVERYTHING || selectedTopic === blogTopic.name">
 
-    <ng-container *ngIf="blogTopic.topicList?.length">
+    <ng-container *ngIf="blogTopic.topicList.length">
         <h2 class="sm-heading">
             {{ blogTopic.name }}
         </h2>
@@ -15,7 +15,7 @@
         Load More
     </div>
 
-    <ng-container *ngIf="!blogTopic.topicList?.length">
+    <ng-container *ngIf="!blogTopic.topicList.length">
         <h2 class="sm-heading">
             {{ blogTopic.name }}
         </h2>

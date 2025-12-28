@@ -12,6 +12,7 @@ import {
   selector: 'app-javascript-array-methods',
   templateUrl: './javascript-array-methods.component.html',
   styleUrls: ['./javascript-array-methods.component.scss'],
+  standalone: false
 })
 
 export class JavascriptArrayMethodsComponent implements OnInit {

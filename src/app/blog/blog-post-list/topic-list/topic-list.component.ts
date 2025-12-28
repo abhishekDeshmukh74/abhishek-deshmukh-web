@@ -6,7 +6,8 @@ import { BlogTopic } from './../blog-post-list.interfaces';
 @Component({
   selector: 'app-topic-list',
   templateUrl: './topic-list.component.html',
-  styleUrls: ['./topic-list.component.scss']
+  styleUrls: ['./topic-list.component.scss'],
+  standalone: false
 })
 
 export class TopicListComponent implements OnInit {

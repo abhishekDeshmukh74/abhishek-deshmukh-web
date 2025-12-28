@@ -10,7 +10,8 @@ import { BlogTopic } from './blog-post-list.interfaces';
 @Component({
   selector: 'app-blog-post-list',
   templateUrl: './blog-post-list.component.html',
-  styleUrls: ['./blog-post-list.component.scss']
+  styleUrls: ['./blog-post-list.component.scss'],
+  standalone: false
 })
 
 export class BlogPostListComponent {

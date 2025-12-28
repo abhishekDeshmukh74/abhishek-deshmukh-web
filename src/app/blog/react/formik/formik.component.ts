@@ -8,6 +8,7 @@ import { appJsStartingCode } from './formik.snippets';
   selector: 'app-formik',
   templateUrl: './formik.component.html',
   styleUrls: ['./formik.component.scss'],
+  standalone: false
 })
 
 export class FormikComponent implements OnInit {

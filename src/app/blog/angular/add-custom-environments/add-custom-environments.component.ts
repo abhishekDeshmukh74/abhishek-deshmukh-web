@@ -13,7 +13,8 @@ import {
 @Component({
   selector: 'app-add-custom-environments',
   templateUrl: './add-custom-environments.component.html',
-  styleUrls: ['./add-custom-environments.component.scss']
+  styleUrls: ['./add-custom-environments.component.scss'],
+  standalone: false
 })
 
 export class AddCustomEnvironmentsComponent implements OnInit {

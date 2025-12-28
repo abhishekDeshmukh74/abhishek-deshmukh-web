@@ -11,6 +11,7 @@ import { ISocialActivity } from './social-activity.interfaces';
 @Component({
   templateUrl: './social-activity.component.html',
   styleUrls: ['./social-activity.component.scss'],
+  standalone: false
 })
 export class SocialActivityComponent implements OnInit {
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator | any;

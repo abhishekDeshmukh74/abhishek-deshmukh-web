@@ -5,7 +5,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   selector: 'app-copy-code',
   templateUrl: './copy-code.component.html',
   styleUrls: ['./copy-code.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 
 export class CopyCodeComponent implements OnInit {

@@ -6,6 +6,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   templateUrl: './freestyle-code-snippet.component.html',
   styleUrls: ['./freestyle-code-snippet.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class FreestyleCodeSnippetComponent implements OnInit {
   @Input()

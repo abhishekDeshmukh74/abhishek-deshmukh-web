@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
   templateUrl: './share-post-section.component.html',
   styleUrls: ['./share-post-section.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 
 export class SharePostSectionComponent implements OnInit {

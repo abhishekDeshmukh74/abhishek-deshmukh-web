@@ -7,6 +7,7 @@ import { BlogCard } from './blog-card.interfaces';
   templateUrl: './blog-card.component.html',
   styleUrls: ['./blog-card.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 
 export class BlogCardComponent implements OnInit {

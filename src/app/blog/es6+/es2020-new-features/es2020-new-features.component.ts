@@ -7,7 +7,8 @@ import { allSettledExample, index, utilities } from './es2020-new-features.snipp
 @Component({
   selector: 'app-es2020-new-features',
   templateUrl: './es2020-new-features.component.html',
-  styleUrls: ['./es2020-new-features.component.scss']
+  styleUrls: ['./es2020-new-features.component.scss'],
+  standalone: false
 })
 
 export class ES2020NewFeaturesComponent implements OnInit {

@@ -6,6 +6,7 @@ import { IJob } from 'src/app/portfolio/about-me/job-card/job-card.interfaces';
   selector: 'app-about-me',
   templateUrl: './about-me.component.html',
   styleUrls: ['./about-me.component.scss'],
+  standalone: false
 })
 export class AboutMeComponent implements OnInit {
   age = 27;

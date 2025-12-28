@@ -33,7 +33,7 @@
             <div *ngIf="comments.length > maxSize" class="load-comments" (click)="onNext()">
                 Load {{comments.length - maxSize}} Comments
             </div>
-            <p *ngIf="!showSpinner && !comments?.length">No comments yet. Be the first one :D</p>
+            <p *ngIf="!showSpinner && !comments.length">No comments yet. Be the first one :D</p>
         </mat-card-content>
     </mat-card>
 </div>

@@ -4,7 +4,8 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   selector: 'app-angular-code-snippet',
   templateUrl: './angular-code-snippet.component.html',
   styleUrls: ['./angular-code-snippet.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 
 export class AngularCodeSnippetComponent implements OnInit {

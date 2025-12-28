@@ -10,7 +10,8 @@ import {
 @Component({
   selector: 'app-javascript-events',
   templateUrl: './javascript-events.component.html',
-  styleUrls: ['./javascript-events.component.scss']
+  styleUrls: ['./javascript-events.component.scss'],
+  standalone: false
 })
 
 export class JavascriptEventsComponent implements OnInit {

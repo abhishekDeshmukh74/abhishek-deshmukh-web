@@ -7,7 +7,8 @@ import { appWithLazyLoadingImagesSnippet, importDeferLoadModuleFileSnippet } fro
 @Component({
   selector: 'app-lazy-loading-images',
   templateUrl: './lazy-loading-images.component.html',
-  styleUrls: ['./lazy-loading-images.component.scss']
+  styleUrls: ['./lazy-loading-images.component.scss'],
+  standalone: false
 })
 
 export class LazyLoadingImagesComponent implements OnInit {

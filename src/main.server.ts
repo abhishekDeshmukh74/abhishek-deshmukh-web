@@ -1,13 +1,5 @@
-import { enableProdMode } from '@angular/core';
+import { AppServerModule } from './app/app.server.module';
 
-import { environment } from '@environment';
+const bootstrap = () => AppServerModule;
 
-if (environment.production) {
-  enableProdMode();
-}
-
-export { AppServerModule } from './app/app.server.module';
-
-export { ngExpressEngine } from '@nguniversal/express-engine';
-
-export { renderModule, renderModuleFactory } from '@angular/platform-server';
+export default bootstrap;

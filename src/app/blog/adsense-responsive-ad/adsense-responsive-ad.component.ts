@@ -6,6 +6,7 @@ declare const window: any;
   templateUrl: './adsense-responsive-ad.component.html',
   styleUrls: ['./adsense-responsive-ad.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 
 export class AdsenseResponsiveAdComponent implements AfterViewInit {

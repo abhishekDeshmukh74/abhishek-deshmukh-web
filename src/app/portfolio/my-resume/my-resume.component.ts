@@ -4,7 +4,8 @@ import { PDFProgressData } from 'ng2-pdf-viewer';
 @Component({
   selector: 'app-my-resume',
   templateUrl: './my-resume.component.html',
-  styleUrls: ['./my-resume.component.scss']
+  styleUrls: ['./my-resume.component.scss'],
+  standalone: false
 })
 
 export class MyResumeComponent implements OnInit {

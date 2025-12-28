@@ -12,7 +12,8 @@ import {
 @Component({
   selector: 'app-material-table-stuff',
   templateUrl: './material-table-stuff.component.html',
-  styleUrls: ['./material-table-stuff.component.scss']
+  styleUrls: ['./material-table-stuff.component.scss'],
+  standalone: false
 })
 
 export class MaterialTableStuffComponent implements OnInit {

@@ -7,7 +7,8 @@ import { consoleGroupSnippet, loopComparisonOutput, loopComparisonSnippet } from
 @Component({
   selector: 'app-console-object-methods',
   templateUrl: './console-object-methods.component.html',
-  styleUrls: ['./console-object-methods.component.scss']
+  styleUrls: ['./console-object-methods.component.scss'],
+  standalone: false
 })
 
 export class ConsoleObjectMethodsComponent implements OnInit {

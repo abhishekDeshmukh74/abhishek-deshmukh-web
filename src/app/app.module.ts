@@ -66,7 +66,7 @@ import { HomeComponent } from './portfolio/home/home.component';
   ],
   bootstrap: [AppComponent],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
+    BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

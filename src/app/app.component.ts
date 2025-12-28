@@ -21,6 +21,7 @@ import { slideInAnimation } from './app.animations';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
   animations: [slideInAnimation],
+  standalone: false
 })
 
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {

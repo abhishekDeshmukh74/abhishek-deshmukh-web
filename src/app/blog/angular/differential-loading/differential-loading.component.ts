@@ -6,7 +6,8 @@ import { angularBlogCardList } from '../angular.post-list';
 @Component({
   selector: 'app-differential-loading',
   templateUrl: './differential-loading.component.html',
-  styleUrls: ['./differential-loading.component.scss']
+  styleUrls: ['./differential-loading.component.scss'],
+  standalone: false
 })
 
 export class DifferentialLoadingComponent implements OnInit {

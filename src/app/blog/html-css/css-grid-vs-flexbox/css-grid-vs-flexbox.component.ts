@@ -7,7 +7,8 @@ import { flexboxHtmlSnippet, gridHtmlSnippet } from './css-grid-vs-flexbox.snipp
 @Component({
   selector: 'app-css-grid-vs-flexbox',
   templateUrl: './css-grid-vs-flexbox.component.html',
-  styleUrls: ['./css-grid-vs-flexbox.component.scss']
+  styleUrls: ['./css-grid-vs-flexbox.component.scss'],
+  standalone: false
 })
 
 export class CssGridVsFlexboxComponent implements OnInit {

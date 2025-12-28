@@ -11,7 +11,8 @@ import { INotificationsResponse } from './notifications.interfaces';
 
 @Component({
   templateUrl: './notifications.component.html',
-  styleUrls: ['./notifications.component.scss']
+  styleUrls: ['./notifications.component.scss'],
+  standalone: false
 })
 
 export class NotificationsComponent implements OnInit, OnDestroy {

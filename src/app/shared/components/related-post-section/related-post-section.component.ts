@@ -8,6 +8,7 @@ import { BlogCard } from './../blog-card/blog-card.interfaces';
   templateUrl: './related-post-section.component.html',
   styleUrls: ['./related-post-section.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 
 export class RelatedPostSectionComponent implements OnInit {

@@ -20,9 +20,7 @@
             "outputPath": "dist/abhishek-deshmukh-frontend/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
-            "polyfills": [
-              "zone.js"
-            ],
+            "polyfills": ["zone.js"],
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
@@ -80,10 +78,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "abhishek-deshmukh-frontend:build:production"
+              "buildTarget": "abhishek-deshmukh-frontend:build:production"
             },
             "development": {
-              "browserTarget": "abhishek-deshmukh-frontend:build:development"
+              "buildTarget": "abhishek-deshmukh-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -91,23 +89,16 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "abhishek-deshmukh-frontend:build"
+            "buildTarget": "abhishek-deshmukh-frontend:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "polyfills": [
-              "zone.js",
-              "zone.js/testing"
-            ],
+            "polyfills": ["zone.js", "zone.js/testing"],
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets",
-              "src/manifest.json"
-            ],
+            "assets": ["src/favicon.ico", "src/assets", "src/manifest.json"],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.scss"
@@ -143,33 +134,31 @@
           "defaultConfiguration": "production"
         },
         "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
+          "builder": "@angular-devkit/build-angular:ssr-dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "abhishek-deshmukh-frontend:build:development",
+              "buildTarget": "abhishek-deshmukh-frontend:build:development",
               "serverTarget": "abhishek-deshmukh-frontend:server:development"
             },
             "production": {
-              "browserTarget": "abhishek-deshmukh-frontend:build:production",
+              "buildTarget": "abhishek-deshmukh-frontend:build:production",
               "serverTarget": "abhishek-deshmukh-frontend:server:production"
             }
           },
           "defaultConfiguration": "development"
         },
         "prerender": {
-          "builder": "@nguniversal/builders:prerender",
+          "builder": "@angular-devkit/build-angular:prerender",
           "options": {
-            "routes": [
-              "/"
-            ]
+            "routes": ["/"]
           },
           "configurations": {
             "production": {
-              "browserTarget": "abhishek-deshmukh-frontend:build:production",
+              "buildTarget": "abhishek-deshmukh-frontend:build:production",
               "serverTarget": "abhishek-deshmukh-frontend:server:production"
             },
             "development": {
-              "browserTarget": "abhishek-deshmukh-frontend:build:development",
+              "buildTarget": "abhishek-deshmukh-frontend:build:development",
               "serverTarget": "abhishek-deshmukh-frontend:server:development"
             }
           },
@@ -182,3 +171,4 @@
     "analytics": "070dc3cd-04c6-4681-8369-6744701426d5"
   }
 }
+                 

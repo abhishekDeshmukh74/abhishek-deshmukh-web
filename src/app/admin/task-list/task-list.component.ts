@@ -5,7 +5,8 @@ import { IProject } from '@shared/components/project-card/project-card.interface
 @Component({
   selector: 'app-task-list',
   templateUrl: './task-list.component.html',
-  styleUrls: ['./task-list.component.scss']
+  styleUrls: ['./task-list.component.scss'],
+  standalone: false
 })
 
 export class TaskListComponent implements OnInit {

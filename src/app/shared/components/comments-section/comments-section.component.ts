@@ -15,6 +15,7 @@ import { commentValidations, commentValidationsMessages } from './comments-secti
   selector: 'app-comments-section',
   templateUrl: './comments-section.component.html',
   styleUrls: ['./comments-section.component.scss'],
+  standalone: false
 })
 
 export class CommentsSectionComponent implements OnInit, OnDestroy {

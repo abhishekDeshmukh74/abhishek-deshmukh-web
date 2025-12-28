@@ -26,6 +26,7 @@ import {
   selector: 'app-react-router-guide',
   templateUrl: './react-router-guide.component.html',
   styleUrls: ['./react-router-guide.component.scss'],
+  standalone: false
 })
 export class ReactRouterGuideComponent implements OnInit {
   readonly reactBlogCardList = reactBlogCardList;

@@ -6,7 +6,8 @@ import { angularBlogCardList } from '../angular.post-list';
 @Component({
   selector: 'app-build-mobile-apps-using-angular',
   templateUrl: './build-mobile-apps-using-angular.component.html',
-  styleUrls: ['./build-mobile-apps-using-angular.component.scss']
+  styleUrls: ['./build-mobile-apps-using-angular.component.scss'],
+  standalone: false
 })
 
 export class BuildMobileAppsUsingAngularComponent implements OnInit {
