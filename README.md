@@ -1,27 +1,66 @@
-# AbhishekDeshmukhFrontend
+# Abhishek Deshmukh — Web (Angular)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.6.
+Personal website / portfolio built with **Angular** (Angular CLI **v15.2.6**) and deployed on **Vercel**.
 
-## Development server
+Live: https://abhishek-deshmukh-web-nu.vercel.app
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## Tech Stack
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Angular (TypeScript)
+- HTML / SCSS
+
+---
+
+## Getting Started (Local Setup)
+
+### Install dependencies
+npm install
+
+### Run the development server
+npm start
+or
+ng serve
+
+Open http://localhost:4200/ in your browser.
+
+---
+
+## Scripts
+
+ng serve   - Run locally
+ng build   - Production build (outputs to dist/)
+ng test    - Unit tests
+ng e2e     - End-to-end tests (if configured)
+
+---
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+ng build
 
-## Running unit tests
+The build artifacts will be stored in the dist/ directory.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+---
 
-## Running end-to-end tests
+## Deployment
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+This project is deployed on Vercel.
 
-## Further help
+Typical setup:
+- Build Command: ng build
+- Output Directory: dist/<app-name>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Note: This repository includes a server.ts file. If used for SSR or a custom Node server, deployment settings may differ.
+
+---
+
+## Project Structure (High Level)
+
+.
+├── src/                 # Angular application source
+├── angular.json         # Angular workspace configuration
+├── ngsw-config.json     # PWA / service worker configuration
+├── server.ts            # Node server entry (optional / SSR)
+└── package.json
